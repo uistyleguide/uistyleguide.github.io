@@ -2,9 +2,6 @@
 *.sw*
 .DS_STORE
 .sass-cache/
-bower_components
-node_modules
-dist
 /src/themes/_default-theme.scss
 
 /.idea/

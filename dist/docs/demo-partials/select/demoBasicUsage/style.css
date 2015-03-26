@@ -1,0 +1,8 @@
+.selectdemoBasicUsage p {
+  padding: 0 20px;
+  text-align: center; }
+.selectdemoBasicUsage p.result {
+  font-size: 0.8em;
+  color: #777; }
+.selectdemoBasicUsage .demo-content {
+  min-height: 348px; }
