@@ -43,5 +43,19 @@
     "q": "^1.0.1",
     "stream-series": "^0.1.1",
     "through2": "^0.6.3"
+  },
+  "dependencies": {
+    "alter": "^0.2.0",
+    "convert-source-map": "^1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-sass": "^1.3.3",
+    "node-sass": "^2.0.1",
+    "ordered-ast-traverse": "^1.1.1",
+    "simple-fmt": "^0.1.0",
+    "simple-is": "^0.2.0",
+    "source-map": "^0.4.2",
+    "stable": "^0.1.5",
+    "stringmap": "^0.2.2",
+    "stringset": "^0.2.1"
   }
 }

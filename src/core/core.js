@@ -15,9 +15,9 @@ function MdCoreConfigure($provide, $mdThemingProvider) {
   $provide.decorator('$$rAF', ["$delegate", rAFDecorator]);
 
   $mdThemingProvider.theme('default')
-    .primaryPalette('indigo')
-    .accentPalette('pink')
-    .warnPalette('red')
+    .primaryPalette('admedblue')
+    .accentPalette('adpurple')
+    .warnPalette('adred')
     .backgroundPalette('grey');
 }
 

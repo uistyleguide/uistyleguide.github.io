@@ -7,6 +7,17 @@ md-grid-list { margin: 8px; }
 .red { background: #ff8a80; }
 
 
+/**  CUSTOMIZATION BY TGS
+
+md-grid-list { margin: 8px; }
+.gray { background: #a6a7a9; }
+.green { background: #00994a; }
+.yellow { background: #ffb611; }
+.blue { background: rgb(0,100,190); }
+.purple { background: #580e8b; }
+.red { background: #ff0014; }
+
+**/
 
 md-grid-tile {
   transition: all 400ms ease-out 50ms;

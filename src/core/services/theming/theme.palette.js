@@ -3,7 +3,7 @@
 
 angular.module('material.core.theming.palette', [])
 .constant('$mdColorPalette', {
-  'red': {
+    'red': {
     '50': '#ffebee',
     '100': '#ffcdd2',
     '200': '#ef9a9a',
@@ -52,10 +52,10 @@ angular.module('material.core.theming.palette', [])
     '700': '#7b1fa2',
     '800': '#6a1b9a',
     '900': '#4a148c',
-    'A100': '#ea80fc',
-    'A200': '#e040fb',
-    'A400': '#d500f9',
-    'A700': '#aa00ff',
+    'A100': '#9c27b0',
+    'A200': '#9c27b0',
+    'A400': '#9c27b0',
+    'A700': '#9c27b0',
     'contrastDefaultColor': 'light',
     'contrastDarkColors': '50 100 200 A100',
     'contrastStrongLightColors': '300 400 A200 A400 A700'
@@ -360,6 +360,349 @@ angular.module('material.core.theming.palette', [])
     'contrastDefaultColor': 'light',
     'contrastDarkColors': '50 100 200 300',
     'contrastStrongLightColors': '400 500'
-  }
+  },
+  'adred': {
+    '50': '#ffdee0',
+    '100': '#ffb0b6',
+    '200': '#ff808a',
+    '300': '#ff4c5a',
+    '400': '#ff2637',
+    '500': '#ff0014',
+    '600': '#e80012',
+    '700': '#cf0010',
+    '800': '#b5000e',
+    '900': '#85000a',
+    'A100': '#ffb0b6', // Need to update these alternative colors
+    'A200': '#ff808a', // Need to update these alternative colors
+    'A400': '#ff2637', // Need to update these alternative colors
+    'A700': '#cf0010', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adgrey': {
+    '50': '#e8e8e9',
+    '100': '#c8c8c9',
+    '200': '#a6a7a9',
+    '300': '#828386',
+    '400': '#67696c',
+    '500': '#4d4f53',
+    '600': '#46474b',
+    '700': '#3e4043',
+    '800': '#36383b',
+    '900': '#28292b',
+    'A100': '#36383b', // Need to update these alternative colors
+    'A200': '#28292b', // Need to update these alternative colors
+    'A400': '#28292b', // Need to update these alternative colors
+    'A700': '#28292b', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adgreyblue': {
+    '50': '#e8e8e9',
+    '100': '#c8c8c9',
+    '200': '#a6a7a9',
+    '300': '#828386',
+    '400': '#67696c',
+    '500': '#4d4f53',
+    '600': '#46474b',
+    '700': '#3e4043',
+    '800': '#3F51B5',
+    '900': '#3949AB',
+    'A100': '#303F9F', // Need to update these alternative colors
+    'A200': '#283593', // Need to update these alternative colors
+    'A400': '#1A237E', // Need to update these alternative colors
+    'A700': '#3e4043', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },  
+  'adcoolgrey': {
+    '50': '#f4f4f4',
+    '100': '#e3e4e4',
+    '200': '#d3d3d4',
+    '300': '#c0c1c2',
+    '400': '#b3b4b5',
+    '500': '#a6a7a9',
+    '600': '#979799',
+    '700': '#868789',
+    '800': '#767678',
+    '900': '#565758',
+    'A100': '#e3e4e4', // Need to update these alternative colors
+    'A200': '#d3d3d4', // Need to update these alternative colors
+    'A400': '#b3b4b5', // Need to update these alternative colors
+    'A700': '#868789', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adyellow': {
+    '50': '#fff6e0',
+    '100': '#ffe8b5',
+    '200': '#ffdb88',
+    '300': '#ffcb57',
+    '400': '#ffc034',
+    '500': '#ffb611',
+    '600': '#e8a50f',
+    '700': '#cf930d',
+    '800': '#b5810c',
+    '900': '#855f08',
+    'A100': '#ffe8b5', // Need to update these alternative colors
+    'A200': '#ffdb88', // Need to update these alternative colors
+    'A400': '#ffc034', // Need to update these alternative colors
+    'A700': '#cf930d', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adorange': {
+    '50': '#ffe9de',
+    '100': '#ffccb0',
+    '200': '#ffad80',
+    '300': '#ff8b4c',
+    '400': '#ff7226',
+    '500': '#ff5a00',
+    '600': '#e85100',
+    '700': '#cf4900',
+    '800': '#b53f00',
+    '900': '#852f00',
+    'A100': '#ffccb0', // Need to update these alternative colors
+    'A200': '#ffad80', // Need to update these alternative colors
+    'A400': '#ff7226', // Need to update these alternative colors
+    'A700': '#cf4900', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adstone': {
+    '50': '#f6f5f0',
+    '100': '#e8e7dc',
+    '200': '#dad9c6',
+    '300': '#cbc9af',
+    '400': '#c0bd9e',
+    '500': '#b5b28d',
+    '600': '#a4a280',
+    '700': '#939072',
+    '800': '#807e64',
+    '900': '#5e5d49',
+    'A100': '#e8e7dc', // Need to update these alternative colors
+    'A200': '#dad9c6', // Need to update these alternative colors
+    'A400': '#c0bd9e', // Need to update these alternative colors
+    'A700': '#939072', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adgreen': {
+    '50': '#def2e7',
+    '100': '#b0dfc7',
+    '200': '#80cca5',
+    '300': '#4cb780',
+    '400': '#26a865',
+    '500': '#00994a',
+    '600': '#008b43',
+    '700': '#007c3c',
+    '800': '#006c34',
+    '900': '#005026',
+    'A100': '#b0dfc7', // Need to update these alternative colors
+    'A200': '#80cca5', // Need to update these alternative colors
+    'A400': '#26a865', // Need to update these alternative colors
+    'A700': '#007c3c', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adpurple': {
+    '50': '#e9dff0',
+    '100': '#cbb4db',
+    '200': '#ac87c5',
+    '300': '#8955ad',
+    '400': '#70319c',
+    '500': '#580e8b',
+    '600': '#500c7e',
+    '700': '#470b70',
+    '800': '#3e0962',
+    '900': '#2e0748',
+    'A100': '#ac87c5', // Need to update these alternative colors
+    'A200': '#8955ad', // Need to update these alternative colors
+    'A400': '#70319c', // Need to update these alternative colors
+    'A700': '#580e8b', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400',
+    'contrastStrongLightColors': '500 600 700 A100 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adblue': {
+    '50': '#dee3ed',
+    '100': '#b0bdd5',
+    '200': '#8096bb',
+    '300': '#4c6a9f',
+    '400': '#264b8b',
+    '500': '#002c77',
+    '600': '#00286c',
+    '700': '#002360',
+    '800': '#001f54',
+    '900': '#00173e',
+    'A100': '#b0bdd5', // Need to update these alternative colors
+    'A200': '#8096bb', // Need to update these alternative colors
+    'A400': '#264b8b', // Need to update these alternative colors
+    'A700': '#002360', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'admedblue': {
+    '50': '#000000',
+    '100': '#b0cfeb',
+    '200': '#80b2df',
+    '300': '#4c92d1',
+    '400': '#267bc7',
+    '500': '#0064be',
+    '600': '#005bac',
+    '700': '#00519a',
+    '800': '#004787',
+    '900': '#003463',
+    'A100': '#0099cc', // Need to update these alternative colors
+    'A200': '#0099CC', // Need to update these alternative colors
+    'A400': '#008BB9', // Need to update these alternative colors
+    'A700': '#007CA5', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200',
+    'contrastStrongLightColors': '300 400 500 600 700 A100 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adlightgreen': {
+    '50': '#ebf7e3',
+    '100': '#cfebbd',
+    '200': '#b3de95',
+    '300': '#93d06a',
+    '400': '#7cc64a',
+    '500': '#66bd2b',
+    '600': '#5cac27',
+    '700': '#529922',
+    '800': '#48861e',
+    '900': '#356216',
+    'A100': '#cfebbd', // Need to update these alternative colors
+    'A200': '#b3de95', // Need to update these alternative colors
+    'A400': '#7cc64a', // Need to update these alternative colors
+    'A700': '#529922', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adlightpurple': {
+    '50': '#f3eaf6',
+    '100': '#e1cee8',
+    '200': '#cfb0da',
+    '300': '#bb8fcb',
+    '400': '#ad77c0',
+    '500': '#9f60b5',
+    '600': '#9057a4',
+    '700': '#814e93',
+    '800': '#714480',
+    '900': '#53325e',
+    'A100': '#e1cee8', // Need to update these alternative colors
+    'A200': '#cfb0da', // Need to update these alternative colors
+    'A400': '#ad77c0', // Need to update these alternative colors
+    'A700': '#814e93', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },  
+  'adlightblue': {
+    '50': '#def4fb',
+    '100': '#b1e4f6',
+    '200': '#82d4f0',
+    '300': '#4ec2e9',
+    '400': '#29b5e4',
+    '500': '#04a8e0',
+    '600': '#0398cb',
+    '700': '#0388b6',
+    '800': '#02779f',
+    '900': '#025775',
+    'A100': '#b1e4f6', // Need to update these alternative colors
+    'A200': '#82d4f0', // Need to update these alternative colors
+    'A400': '#29b5e4', // Need to update these alternative colors
+    'A700': '#0388b6', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+  'adpms300c': {
+    '50': '#e31a23', // Pantone Coated 2995 C
+    '100': '#f78e1e', // Pantone Coated 2995 C
+    '200': '#00a4de', // Pantone Coated 2995 C
+    '300': '#54308f', // Pantone Coated 300 C
+    '400': '#00a160', // Pantone Coated 300 C
+    '500': '#0063cf', // Pantone Coated 300 C
+    '600': '#005abc', // Pantone Coated 288 C
+    '700': '#0098ce', // Primary Hue 2
+    '800': '#ff7043', // Pantone Coated 288 C
+    '900': '#cddc39', // Pantone Coated 288 C
+    'A100': '#76ff03', // Need to update these alternative colors
+    'A200': '#ffcdd2', // Need to update these alternative colors
+    'A400': '#64ffda', // Need to update these alternative colors
+    'A700': '#bf360c', // Need to update these alternative colors
+    'contrastDefaultColor': 'light', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },  
+  'adpms300d': {
+    '50': '#e31a23', // Pantone Coated 2995 C
+    '100': '#f78e1e', // Pantone Coated 2995 C
+    '200': '#00a4de', // Pantone Coated 2995 C
+    '300': '#54308f', // Pantone Coated 300 C
+    '400': '#00a160', // Pantone Coated 300 C
+    '500': '#005eb8', // Pantone Coated 300 C
+    '600': '#ffcc34', // Pantone Coated 288 C
+    '700': '#0099cc', // Pantone Coated 288 C
+    '800': '#ff7043', // Pantone Coated 288 C
+    '900': '#cddc39', // Pantone Coated 288 C
+    'A100': '#0099cc', // Need to update these alternative colors
+    'A200': '#5c068c', // Accent Color 1
+    'A400': '#64ffda', // Need to update these alternative colors
+    'A700': '#bf360c', // Need to update these alternative colors
+    'contrastDefaultColor': 'dark', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+    'adcoolergrey': {
+    '50': '#F8F9F9', // Pantone Coated 2995 C
+    '100': '#EEEEEF', // Pantone Coated 2995 C
+    '200': '#E4E4E5', // Pantone Coated 2995 C
+    '300': '#D8D9DA', // Pantone Coated 300 C
+    '400': '#CFD0D2', // Pantone Coated 300 C
+    '500': '#C8C9CA', // Pantone Coated 300 C
+    '600': '#B2B3B3', // Pantone Coated 288 C
+    '700': '#9A9B9C', // Pantone Coated 288 C
+    '800': '#838484', // Pantone Coated 288 C
+    '900': '#5A5B5B', // Pantone Coated 288 C
+    'A100': '#838484', // Need to update these alternative colors
+    'A200': '#5A5B5B', // Accent Color 1
+    'A400': '#E4E4E5', // Need to update these alternative colors
+    'A700': '#D8D9DA', // Need to update these alternative colors
+    'contrastDefaultColor': 'dark', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  },
+    'adblack': {
+    '50': '#D7D7D7', // Pantone Coated 2995 C
+    '100': '#A1A1A1', // Pantone Coated 2995 C
+    '200': '#6D6D6D', // Pantone Coated 2995 C
+    '300': '#1C1C1C', // Pantone Coated 300 C
+    '400': '#000000', // Pantone Coated 300 C
+    '500': '#000000', // Pantone Coated 300 C
+    '600': '#000000', // Pantone Coated 288 C
+    '700': '#000000', // Pantone Coated 288 C
+    '800': '#000000', // Pantone Coated 288 C
+    '900': '#000000', // Pantone Coated 288 C
+    'A100': '#878A8D', // Need to update these alternative colors
+    'A200': '#75787A', // Accent Color 1
+    'A400': '#686B6D', // Need to update these alternative colors
+    'A700': '#5B5D5F', // Need to update these alternative colors
+    'contrastDefaultColor': 'dark', 
+    'contrastDarkColors': '50 100 200 300 400 A100',
+    'contrastStrongLightColors': '500 600 700 A200 A400 A700' // Need to update these alternative colors
+  } 
+
 });
 })();

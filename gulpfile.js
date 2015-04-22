@@ -288,7 +288,7 @@ function buildModuleStyles(name) {
  ** ***************************************** */
 
 gulp.task('watch', ['docs'], function() {
-  gulp.watch('src/**/*', ['build', 'docs']);
+  gulp.watch(['src/**/*', 'docs/**/**/*'], ['build', 'docs']);
 });
 
 gulp.task('watch-demo', ['build-demo'], function() {
