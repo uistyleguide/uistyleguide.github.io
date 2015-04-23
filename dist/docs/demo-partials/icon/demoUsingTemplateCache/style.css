@@ -10,7 +10,7 @@
 .icondemoUsingTemplateCache .appUsingTemplateCache {
   padding: 25px; }
 .icondemoUsingTemplateCache .note {
-  font-size: 0.8em;
+  font-size: .8em;
   display: block;
   margin-top: -2px;
   padding-left: 25px;

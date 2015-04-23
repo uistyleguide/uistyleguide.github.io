@@ -69,65 +69,6 @@
   }
 })();
 
-angular.module('bottomSheetDemo1', ['ngMaterial'])
-
-.controller('BottomSheetExample', function($scope, $timeout, $mdBottomSheet) {
-  $scope.alert = '';
-
-  $scope.showListBottomSheet = function($event) {
-    $scope.alert = '';
-    $mdBottomSheet.show({
-      templateUrl: 'bottom-sheet-list-template.html',
-      controller: 'ListBottomSheetCtrl',
-      targetEvent: $event
-    }).then(function(clickedItem) {
-      $scope.alert = clickedItem.name + ' clicked!';
-    });
-  };
-
-  $scope.showGridBottomSheet = function($event) {
-    $scope.alert = '';
-    $mdBottomSheet.show({
-      templateUrl: 'bottom-sheet-grid-template.html',
-      controller: 'GridBottomSheetCtrl',
-      targetEvent: $event
-    }).then(function(clickedItem) {
-      $scope.alert = clickedItem.name + ' clicked!';
-    });
-  };
-})
-
-.controller('ListBottomSheetCtrl', function($scope, $mdBottomSheet) {
-
-  $scope.items = [
-    { name: 'Share', icon: 'share' },
-    { name: 'Upload', icon: 'upload' },
-    { name: 'Copy', icon: 'copy' },
-    { name: 'Print this page', icon: 'print' },
-  ];
-
-  $scope.listItemClick = function($index) {
-    var clickedItem = $scope.items[$index];
-    $mdBottomSheet.hide(clickedItem);
-  };
-})
-.controller('GridBottomSheetCtrl', function($scope, $mdBottomSheet) {
-
-  $scope.items = [
-    { name: 'Hangout', icon: 'hangout' },
-    { name: 'Mail', icon: 'mail' },
-    { name: 'Message', icon: 'message' },
-    { name: 'Copy', icon: 'copy' },
-    { name: 'Facebook', icon: 'facebook' },
-    { name: 'Twitter', icon: 'twitter' },
-  ];
-
-  $scope.listItemClick = function($index) {
-    var clickedItem = $scope.items[$index];
-    $mdBottomSheet.hide(clickedItem);
-  };
-});
-
 (function () {
   'use strict';
   angular
@@ -190,6 +131,72 @@ angular.module('bottomSheetDemo1', ['ngMaterial'])
   }
 })();
 
+angular.module('bottomSheetDemo1', ['ngMaterial'])
+
+.controller('BottomSheetExample', function($scope, $timeout, $mdBottomSheet) {
+  $scope.alert = '';
+
+  $scope.showListBottomSheet = function($event) {
+    $scope.alert = '';
+    $mdBottomSheet.show({
+      templateUrl: 'bottom-sheet-list-template.html',
+      controller: 'ListBottomSheetCtrl',
+      targetEvent: $event
+    }).then(function(clickedItem) {
+      $scope.alert = clickedItem.name + ' clicked!';
+    });
+  };
+
+  $scope.showGridBottomSheet = function($event) {
+    $scope.alert = '';
+    $mdBottomSheet.show({
+      templateUrl: 'bottom-sheet-grid-template.html',
+      controller: 'GridBottomSheetCtrl',
+      targetEvent: $event
+    }).then(function(clickedItem) {
+      $scope.alert = clickedItem.name + ' clicked!';
+    });
+  };
+})
+
+.controller('ListBottomSheetCtrl', function($scope, $mdBottomSheet) {
+
+  $scope.items = [
+    { name: 'Share', icon: 'share' },
+    { name: 'Upload', icon: 'upload' },
+    { name: 'Copy', icon: 'copy' },
+    { name: 'Print this page', icon: 'print' },
+  ];
+
+  $scope.listItemClick = function($index) {
+    var clickedItem = $scope.items[$index];
+    $mdBottomSheet.hide(clickedItem);
+  };
+})
+.controller('GridBottomSheetCtrl', function($scope, $mdBottomSheet) {
+
+  $scope.items = [
+    { name: 'Hangout', icon: 'hangout' },
+    { name: 'Mail', icon: 'mail' },
+    { name: 'Message', icon: 'message' },
+    { name: 'Copy', icon: 'copy' },
+    { name: 'Facebook', icon: 'facebook' },
+    { name: 'Twitter', icon: 'twitter' },
+  ];
+
+  $scope.listItemClick = function($index) {
+    var clickedItem = $scope.items[$index];
+    $mdBottomSheet.hide(clickedItem);
+  };
+});
+
+
+angular.module('cardDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
+
+});
+
 
 angular.module('buttonsDemo1', ['ngMaterial'])
 
@@ -199,13 +206,6 @@ angular.module('buttonsDemo1', ['ngMaterial'])
   $scope.isDisabled = true;
 
   $scope.googleUrl = 'http://google.com';
-
-});
-
-
-angular.module('cardDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope) {
 
 });
 
@@ -461,15 +461,6 @@ angular
   });
 
 
-angular.module('appSvgIconSets', ['ngMaterial'])
-  .controller('DemoCtrl', function($scope) {})
-  .config(function($mdIconProvider) {
-    $mdIconProvider
-      .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
-      .defaultIconSet('img/icons/sets/core-icons.svg', 24);
-  });
-
-
 angular.module('appDemoSvgIcons', ['ngMaterial'])
 .controller('DemoCtrl', function( $scope ) {
 
@@ -478,6 +469,15 @@ angular.module('appDemoSvgIcons', ['ngMaterial'])
       return 'img/icons/android.svg';
     }
 });
+
+
+angular.module('appSvgIconSets', ['ngMaterial'])
+  .controller('DemoCtrl', function($scope) {})
+  .config(function($mdIconProvider) {
+    $mdIconProvider
+      .iconSet('social', 'img/icons/sets/social-icons.svg', 24)
+      .defaultIconSet('img/icons/sets/core-icons.svg', 24);
+  });
 
 
 angular.module('appUsingTemplateCache', ['ngMaterial'])
@@ -888,6 +888,62 @@ angular.module('switchDemo1', ['ngMaterial'])
   };
 });
 
+
+angular.module('toastDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope, $mdToast, $animate) {
+
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function() {
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos) { return $scope.toastPosition[pos]; })
+      .join(' ');
+  };
+
+  $scope.showCustomToast = function() {
+    $mdToast.show({
+      controller: 'ToastCtrl',
+      templateUrl: 'toast-template.html',
+      hideDelay: 6000,
+      position: $scope.getToastPosition()
+    });
+  };
+
+  $scope.showSimpleToast = function() {
+    $mdToast.show(
+      $mdToast.simple()
+        .content('Simple Toast!')
+        .position($scope.getToastPosition())
+        .hideDelay(3000)
+    );
+  };
+
+  $scope.showActionToast = function() {
+    var toast = $mdToast.simple()
+          .content('Action Toast!')
+          .action('OK')
+          .highlightAction(false)
+          .position($scope.getToastPosition());
+
+    $mdToast.show(toast).then(function() {
+      alert('You clicked \'OK\'.');
+    });
+  };
+
+})
+
+.controller('ToastCtrl', function($scope, $mdToast) {
+  $scope.closeToast = function() {
+    $mdToast.hide();
+  };
+});
+
 angular.module('tabsDemo2', ['ngMaterial'])
   .controller('AppCtrl', function ($scope, $log) {
     var tabs = [
@@ -947,62 +1003,6 @@ angular.module('tabsDemo1', ['ngMaterial'] )
     };
     
   });
-
-
-angular.module('toastDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope, $mdToast, $animate) {
-
-  $scope.toastPosition = {
-    bottom: false,
-    top: true,
-    left: false,
-    right: true
-  };
-
-  $scope.getToastPosition = function() {
-    return Object.keys($scope.toastPosition)
-      .filter(function(pos) { return $scope.toastPosition[pos]; })
-      .join(' ');
-  };
-
-  $scope.showCustomToast = function() {
-    $mdToast.show({
-      controller: 'ToastCtrl',
-      templateUrl: 'toast-template.html',
-      hideDelay: 6000,
-      position: $scope.getToastPosition()
-    });
-  };
-
-  $scope.showSimpleToast = function() {
-    $mdToast.show(
-      $mdToast.simple()
-        .content('Simple Toast!')
-        .position($scope.getToastPosition())
-        .hideDelay(3000)
-    );
-  };
-
-  $scope.showActionToast = function() {
-    var toast = $mdToast.simple()
-          .content('Action Toast!')
-          .action('OK')
-          .highlightAction(false)
-          .position($scope.getToastPosition());
-
-    $mdToast.show(toast).then(function() {
-      alert('You clicked \'OK\'.');
-    });
-  };
-
-})
-
-.controller('ToastCtrl', function($scope, $mdToast) {
-  $scope.closeToast = function() {
-    $mdToast.hide();
-  };
-});
 
 
 angular.module('toolbarDemo1', ['ngMaterial'])
