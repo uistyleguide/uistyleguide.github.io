@@ -23,6 +23,28 @@ DocsApp
     ]
   },
   {
+    "name": "material.components.card",
+    "type": "module",
+    "outputPath": "partials/api/material.components.card/index.html",
+    "url": "api/material.components.card",
+    "label": "material.components.card",
+    "hasDemo": false,
+    "module": ".",
+    "githubUrl": "https://github.com/angular/material/blob/master/src/components/./..js",
+    "docs": [
+      {
+        "name": "mdCard",
+        "type": "directive",
+        "outputPath": "partials/api/material.components.card/directive/mdCard.html",
+        "url": "api/material.components.card/directive/mdCard",
+        "label": "mdCard",
+        "hasDemo": true,
+        "module": "material.components.card",
+        "githubUrl": "https://github.com/angular/material/blob/master/src/components/card/card.js"
+      }
+    ]
+  },
+  {
     "name": "material.components.button",
     "type": "module",
     "outputPath": "partials/api/material.components.button/index.html",
@@ -63,28 +85,6 @@ DocsApp
         "hasDemo": true,
         "module": "material.components.checkbox",
         "githubUrl": "https://github.com/angular/material/blob/master/src/components/checkbox/checkbox.js"
-      }
-    ]
-  },
-  {
-    "name": "material.components.card",
-    "type": "module",
-    "outputPath": "partials/api/material.components.card/index.html",
-    "url": "api/material.components.card",
-    "label": "material.components.card",
-    "hasDemo": false,
-    "module": ".",
-    "githubUrl": "https://github.com/angular/material/blob/master/src/components/./..js",
-    "docs": [
-      {
-        "name": "mdCard",
-        "type": "directive",
-        "outputPath": "partials/api/material.components.card/directive/mdCard.html",
-        "url": "api/material.components.card/directive/mdCard",
-        "label": "mdCard",
-        "hasDemo": true,
-        "module": "material.components.card",
-        "githubUrl": "https://github.com/angular/material/blob/master/src/components/card/card.js"
       }
     ]
   },
@@ -467,6 +467,28 @@ DocsApp
     ]
   },
   {
+    "name": "material.components.switch",
+    "type": "module",
+    "outputPath": "partials/api/material.components.switch/index.html",
+    "url": "api/material.components.switch",
+    "label": "material.components.switch",
+    "hasDemo": false,
+    "module": ".",
+    "githubUrl": "https://github.com/angular/material/blob/master/src/components/./..js",
+    "docs": [
+      {
+        "name": "mdSwitch",
+        "type": "directive",
+        "outputPath": "partials/api/material.components.switch/directive/mdSwitch.html",
+        "url": "api/material.components.switch/directive/mdSwitch",
+        "label": "mdSwitch",
+        "hasDemo": true,
+        "module": "material.components.switch",
+        "githubUrl": "https://github.com/angular/material/blob/master/src/components/switch/switch.js"
+      }
+    ]
+  },
+  {
     "name": "material.components.swipe",
     "type": "module",
     "outputPath": "partials/api/material.components.swipe/index.html",
@@ -495,28 +517,6 @@ DocsApp
         "hasDemo": true,
         "module": "material.components.swipe",
         "githubUrl": "https://github.com/angular/material/blob/master/src/components/swipe/swipe.js"
-      }
-    ]
-  },
-  {
-    "name": "material.components.switch",
-    "type": "module",
-    "outputPath": "partials/api/material.components.switch/index.html",
-    "url": "api/material.components.switch",
-    "label": "material.components.switch",
-    "hasDemo": false,
-    "module": ".",
-    "githubUrl": "https://github.com/angular/material/blob/master/src/components/./..js",
-    "docs": [
-      {
-        "name": "mdSwitch",
-        "type": "directive",
-        "outputPath": "partials/api/material.components.switch/directive/mdSwitch.html",
-        "url": "api/material.components.switch/directive/mdSwitch",
-        "label": "mdSwitch",
-        "hasDemo": true,
-        "module": "material.components.switch",
-        "githubUrl": "https://github.com/angular/material/blob/master/src/components/switch/switch.js"
       }
     ]
   },

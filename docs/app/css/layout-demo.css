@@ -9,16 +9,16 @@ demo-include {
   color: white;
 }
 .layout-content demo-include [layout] > div:nth-child(1) {
-  background-color: #009688;
+  background-color: #000000; /* #009688; ORIGINAL */
 }
 .layout-content demo-include [layout] > div:nth-child(2) {
-  background-color: #3949ab;
+  background-color: #424242; /* #3949ab; ORIGINAL */
 }
 .layout-content demo-include [layout] > div:nth-child(3) {
-  background-color: #9c27b0;
+  background-color: #4c4c4c; /* 9c27b0; ORIGINAL */
 }
 .layout-content demo-include [layout] > div:nth-child(4) {
-  background-color: #8bc34a;
+  background-color: #999999; /* 8bc34a; ORIGINAL */
 }
 .layout-content md-divider {
   margin-top: 16px;

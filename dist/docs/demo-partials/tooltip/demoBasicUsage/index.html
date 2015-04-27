@@ -1,9 +1,9 @@
 <div ng-controller="AppCtrl">
 
-  <md-toolbar class="md-accent">
+  <md-toolbar class="md-primary">
     <h1 class="md-toolbar-tools">
       <span flex>Awesome Md App</span>
-      <md-button class="md-fab md-accent" aria-label="refresh">
+      <md-button class="md-fab md-primary md-hue-3" aria-label="refresh">
         <md-tooltip>
           Refresh
         </md-tooltip>
@@ -18,13 +18,13 @@
       The tooltip is visible when the button is hovered, focused, or touched.
     </p>
 
-    <md-button class="md-fab md-fab-top-left left" aria-label="Insert Drive">
+    <md-button class="md-fab md-fab-top-left left md-primary" aria-label="Insert Drive">
       <md-icon md-svg-src="img/icons/ic_insert_drive_file_24px.svg" style="width: 24px; height: 24px;"></md-icon>
       <md-tooltip md-visible="demo.showTooltip">
         Insert Drive
       </md-tooltip>
     </md-button>
-    <md-button class="md-fab md-fab-top-right right" aria-label="Photos">
+    <md-button class="md-fab md-fab-top-right right md-primary" aria-label="Photos">
       <md-icon md-svg-src="img/icons/ic_photo_24px.svg" style="width: 24px; height: 24px;"></md-icon>
       <md-tooltip>
         Photos
@@ -40,7 +40,7 @@
       </div>
     </p>
 
-    <md-checkbox ng-model="demo.showTooltip">
+    <md-checkbox class="md-primary md-hue-1" ng-model="demo.showTooltip">
       Insert Drive
     </md-checkbox>
 

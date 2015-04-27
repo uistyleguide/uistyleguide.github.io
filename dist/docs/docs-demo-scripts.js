@@ -131,6 +131,25 @@
   }
 })();
 
+
+angular.module('buttonsDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
+  $scope.title1 = 'Button';
+  $scope.title4 = 'Warn';
+  $scope.isDisabled = true;
+
+  $scope.googleUrl = 'http://google.com';
+
+});
+
+
+angular.module('cardDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
+
+});
+
 angular.module('bottomSheetDemo1', ['ngMaterial'])
 
 .controller('BottomSheetExample', function($scope, $timeout, $mdBottomSheet) {
@@ -188,25 +207,6 @@ angular.module('bottomSheetDemo1', ['ngMaterial'])
     var clickedItem = $scope.items[$index];
     $mdBottomSheet.hide(clickedItem);
   };
-});
-
-
-angular.module('cardDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope) {
-
-});
-
-
-angular.module('buttonsDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope) {
-  $scope.title1 = 'Button';
-  $scope.title4 = 'Warn';
-  $scope.isDisabled = true;
-
-  $scope.googleUrl = 'http://google.com';
-
 });
 
 
@@ -299,31 +299,31 @@ function DialogController($scope, $mdDialog) {
 angular.module('dividerDemo1', ['ngMaterial'])
   .controller('AppCtrl', function($scope) {
     $scope.messages = [{
-      face: '/img/list/60.jpeg',
+      face: 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
       what: 'Brunch this weekend?',
       who: 'Min Li Chan',
       when: '3:08PM',
       notes: " I'll be in your neighborhood doing errands"
     }, {
-      face: '/img/list/60.jpeg',
+      face: 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
       what: 'Brunch this weekend?',
       who: 'Min Li Chan',
       when: '3:08PM',
       notes: " I'll be in your neighborhood doing errands"
     }, {
-      face: '/img/list/60.jpeg',
+      face: 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
       what: 'Brunch this weekend?',
       who: 'Min Li Chan',
       when: '3:08PM',
       notes: " I'll be in your neighborhood doing errands"
     }, {
-      face: '/img/list/60.jpeg',
+      face: 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
       what: 'Brunch this weekend?',
       who: 'Min Li Chan',
       when: '3:08PM',
       notes: " I'll be in your neighborhood doing errands"
     }, {
-      face: '/img/list/60.jpeg',
+      face: 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
       what: 'Brunch this weekend?',
       who: 'Min Li Chan',
       when: '3:08PM',
@@ -431,12 +431,12 @@ angular
   .controller('DemoCtrl', function( $scope ) {
       // Create list of font-icon names with color overrides
       var iconData = [
-            {name: 'icon-home'        , color: "#777" },
-            {name: 'icon-user-plus'   , color: "rgb(89, 226, 168)" },
-            {name: 'icon-google-plus2', color: "#A00" },
-            {name: 'icon-youtube4'    , color:"#00A" },
+            {name: 'icon-home'        , color: "#0070CC" },
+            {name: 'icon-user-plus'   , color: "#660099" },
+            {name: 'icon-google-plus2', color: "#EF1D2D" },
+            {name: 'icon-youtube4'    , color:"#424242" },
              // Use theming to color the font-icon
-            {name: 'icon-settings'    , color:"#A00", theme:"md-warn md-hue-5"}
+            {name: 'icon-settings'    , color:"#000000"}//, theme:"md-warn md-hue-5"} ORIGINAL
           ];
 
       // Create a set of sizes...
@@ -562,35 +562,35 @@ angular.module('listDemo1', ['ngMaterial'])
 .controller('AppCtrl', function($scope) {
     $scope.todos = [
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
@@ -797,77 +797,77 @@ angular.module('subheaderBasicDemo', ['ngMaterial'])
 .controller('SubheaderAppCtrl', function($scope) {
     $scope.messages = [
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
         notes: " I'll be in your neighborhood doing errands"
       },
       {
-        face : '/img/list/60.jpeg',
+        face : 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
         what: 'Brunch this weekend?',
         who: 'Min Li Chan',
         when: '3:08PM',
@@ -885,62 +885,6 @@ angular.module('switchDemo1', ['ngMaterial'])
   
   $scope.onChange = function(cbState){
 	$scope.message = "The switch is now: " + cbState;
-  };
-});
-
-
-angular.module('toastDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope, $mdToast, $animate) {
-
-  $scope.toastPosition = {
-    bottom: false,
-    top: true,
-    left: false,
-    right: true
-  };
-
-  $scope.getToastPosition = function() {
-    return Object.keys($scope.toastPosition)
-      .filter(function(pos) { return $scope.toastPosition[pos]; })
-      .join(' ');
-  };
-
-  $scope.showCustomToast = function() {
-    $mdToast.show({
-      controller: 'ToastCtrl',
-      templateUrl: 'toast-template.html',
-      hideDelay: 6000,
-      position: $scope.getToastPosition()
-    });
-  };
-
-  $scope.showSimpleToast = function() {
-    $mdToast.show(
-      $mdToast.simple()
-        .content('Simple Toast!')
-        .position($scope.getToastPosition())
-        .hideDelay(3000)
-    );
-  };
-
-  $scope.showActionToast = function() {
-    var toast = $mdToast.simple()
-          .content('Action Toast!')
-          .action('OK')
-          .highlightAction(false)
-          .position($scope.getToastPosition());
-
-    $mdToast.show(toast).then(function() {
-      alert('You clicked \'OK\'.');
-    });
-  };
-
-})
-
-.controller('ToastCtrl', function($scope, $mdToast) {
-  $scope.closeToast = function() {
-    $mdToast.hide();
   };
 });
 
@@ -1005,6 +949,62 @@ angular.module('tabsDemo1', ['ngMaterial'] )
   });
 
 
+angular.module('toastDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope, $mdToast, $animate) {
+
+  $scope.toastPosition = {
+    bottom: false,
+    top: true,
+    left: false,
+    right: true
+  };
+
+  $scope.getToastPosition = function() {
+    return Object.keys($scope.toastPosition)
+      .filter(function(pos) { return $scope.toastPosition[pos]; })
+      .join(' ');
+  };
+
+  $scope.showCustomToast = function() {
+    $mdToast.show({
+      controller: 'ToastCtrl',
+      templateUrl: 'toast-template.html',
+      hideDelay: 6000,
+      position: $scope.getToastPosition()
+    });
+  };
+
+  $scope.showSimpleToast = function() {
+    $mdToast.show(
+      $mdToast.simple()
+        .content('Simple Toast!')
+        .position($scope.getToastPosition())
+        .hideDelay(3000)
+    );
+  };
+
+  $scope.showActionToast = function() {
+    var toast = $mdToast.simple()
+          .content('Action Toast!')
+          .action('OK')
+          .highlightAction(false)
+          .position($scope.getToastPosition());
+
+    $mdToast.show(toast).then(function() {
+      alert('You clicked \'OK\'.');
+    });
+  };
+
+})
+
+.controller('ToastCtrl', function($scope, $mdToast) {
+  $scope.closeToast = function() {
+    $mdToast.hide();
+  };
+});
+
+
 angular.module('toolbarDemo1', ['ngMaterial'])
 
 .controller('AppCtrl', function($scope) {
@@ -1023,7 +1023,7 @@ var app = angular.module('toolbarDemo2', ['ngMaterial']);
 
 app.controller('AppCtrl', function($scope) {
   var item = {
-    face: '/img/list/60.jpeg',
+    face: 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
     what: 'Brunch this weekend?',
     who: 'Min Li Chan',
     notes: "I'll be in your neighborhood doing errands."
@@ -1031,7 +1031,7 @@ app.controller('AppCtrl', function($scope) {
   $scope.todos = [];
   for (var i = 0; i < 15; i++) {
     $scope.todos.push({
-      face: '/img/list/60.jpeg',
+      face: 'https://raw.githubusercontent.com/uistyleguide/uistyleguide.github.io/master/dist/docs/img/list/60.jpeg',
       what: "Brunch this weekend?",
       who: "Min Li Chan",
       notes: "I'll be in your neighborhood doing errands."

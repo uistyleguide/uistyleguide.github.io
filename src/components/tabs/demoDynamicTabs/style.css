@@ -27,7 +27,7 @@ md-tab[disabled] {
 
 
 .md-tab-content {
-  background: white;
+  background: transparent;
 }
 
 .title {

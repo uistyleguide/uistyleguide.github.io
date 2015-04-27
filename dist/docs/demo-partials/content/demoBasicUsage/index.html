@@ -7,14 +7,34 @@
   </md-toolbar>
 
   <md-content class="md-padding" style="height: 600px;padding: 24px;">
-    Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere reprimique pro, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.
+    Lorem ipsum dolor sit amet, ne quod novum mei. Sea omnium invenire mediocrem at, in lobortis conclusionemque nam. Ne deleniti appetere <a>reprimique pro</a>, inani labitur disputationi te sed. At vix sale omnesque, id pro labitur reformidans accommodare, cum labores honestatis eu. Nec quem lucilius in, eam praesent reformidans no. Sed laudem aliquam ne.
+
+<div ng-controller="AppCtrl">
+  <md-content >
+
+
+
+
+
+
+    <section layout="row" layout-sm="column" layout-align="center center">
+        <md-button ng-href="{{googleUrl}}" target="_blank">Default Link</md-button>
+        <md-button class="md-primary md-hue-1" ng-href="{{googleUrl}}" target="_blank">Primary Link</md-button>
+        <md-button>Default Button</md-button>
+      <div class="label">Link vs. Button</div>
+    </section>
+
+
+
+  </md-content>
+</div>
 
     <p>
-Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. Mel exerci tritani maiorum at, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
+Facete delenit argumentum cum at. Pro rebum nostrum contentiones ad. <a>Mel exerci tritani maiorum at</a>, mea te audire phaedrum, mel et nibh aliquam. Malis causae equidem vel eu. Noster melius vis ea, duis alterum oporteat ea sea. Per cu vide munere fierent.
     </p>
 
     <p>
-Ad sea dolor accusata consequuntur. Sit facete convenire reprehendunt et. Usu cu nonumy dissentiet, mei choro omnes fuisset ad. Te qui docendi accusam efficiantur, doming noster prodesset eam ei. In vel posse movet, ut convenire referrentur eum, ceteros singulis intellegam eu sit.
+Ad sea dolor accusata consequuntur. <a>Sit facete convenire reprehendunt et. Usu cu nonumy dissentiet, mei choro omnes fuisset ad. Te qui docendi accusam efficiantur, doming noster prodesset eam ei</a>. In vel posse movet, ut convenire referrentur eum, ceteros singulis intellegam eu sit.
     </p>
 
     <p>
@@ -29,8 +49,39 @@ Sint unum eam id. At sit fastidii theophrastus, mutat senserit repudiare et has.
 Qui utamur tacimates quaestio ad, quod graece omnium ius ut. Pri ut vero debitis interpretaris, qui cu mentitum adipiscing disputationi. Voluptatum mediocritatem quo ut. Fabulas dolorem ei has, quem molestie persequeris et sit.
     </p>
 
+
+
+<div class="bottom-sheet-demo inset" layout="column" layout-sm="row" layout-align="center">
+    <button class="md-primary md-hue-1 md-button md-default-theme" ng-transclude="" ng-click="showListBottomSheet($event)" tabindex="0"><span class="ng-scope">
+      Show as List
+    </span><div class="md-ripple-container"></div></button>
+    <div style="width:50px;"></div>
+    <button class="md-primary md-hue-1 md-button md-default-theme" ng-transclude="" ng-click="showGridBottomSheet($event)" tabindex="0"><span class="ng-scope">
+      Show as Grid
+    </span></button>
+  </div>
+
+
+
+  <div ng-controller="AppCtrl">
+  <md-checkbox md-no-ink aria-label="Checkbox No Ink" ng-model="data.cb5" class="md-primary">
+    Checkbox (md-primary): No Ink
+  </md-checkbox>
+  <md-checkbox ng-model="data.cb2" aria-label="Checkbox 2" ng-true-value="'yup'" ng-false-value="'nope'" class="md-warn">
+    Checkbox 2 (md-warn): {{ data.cb2 }}
+  </md-checkbox>
+  <md-checkbox ng-disabled="true" aria-label="Disabled checkbox" ng-model="data.cb3">
+    Checkbox: Disabled
+  </md-checkbox>
+  <md-checkbox ng-disabled="true" aria-label="Disabled checked checkbox" ng-model="data.cb4" ng-init="data.cb4=true">
+    Checkbox: Disabled, Checked
+  </md-checkbox>
+
+</div>
+
+
     <p>
-Est in vivendum comprehensam conclusionemque, alia cetero iriure no usu, te cibo deterruisset pro. Ludus epicurei quo id, ex cum iudicabit intellegebat. Ex modo deseruisse quo, mel noster menandri sententiae ea, duo et tritani malorum recteque. Nullam suscipit partiendo nec id, indoctum vulputate per ex. Et has enim habemus tibique. Cu latine electram cum, ridens propriae intellegat eu mea.
+Est in vivendum comprehensam conclusionemque, alia cetero iriure no usu, te cibo deterruisset pro. Ludus epicurei quo id, ex cum iudicabit intellegebat. <a>Ex modo deseruisse quo, mel noster menandri sententiae ea</a>, duo et tritani malorum recteque. Nullam suscipit partiendo nec id, indoctum vulputate per ex. Et has enim habemus tibique. Cu latine electram cum, ridens propriae intellegat eu mea.
     </p>
 
     <p>

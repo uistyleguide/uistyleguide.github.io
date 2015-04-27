@@ -10,7 +10,8 @@
 .dialogdemoBasicUsage md-dialog md-content.sticky-container .dialog-content {
   padding: 0 24px 24px; }
 .dialogdemoBasicUsage .md-subheader {
-  background-color: #dcedc8;
+  background-color: #E6D5EF;
+  /* dcedc8; ORIGINAL */
   margin: 0px; }
 .dialogdemoBasicUsage h2.md-subheader.md-sticky-clone {
   margin-right: 0px;

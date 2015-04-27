@@ -2687,6 +2687,31 @@ md-bottom-sheet {
         text-align: center;
         padding-top: 8px; }
 
+md-card {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 8px;
+  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); }
+  md-card > img, md-card > :not(md-card-content) img {
+    -webkit-order: 0;
+        -ms-flex-order: 0;
+            order: 0;
+    width: 100%; }
+  md-card md-card-content {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
+    padding: 16px; }
+
+@media screen and (-ms-high-contrast: active) {
+  md-card {
+    border: 1px solid #fff; } }
+
 /**
  * Position a FAB button.
  */
@@ -2900,31 +2925,6 @@ md-checkbox {
        -moz-user-select: text;
         -ms-user-select: text;
             user-select: text; }
-
-md-card {
-  box-sizing: border-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  margin: 8px;
-  box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26); }
-  md-card > img, md-card > :not(md-card-content) img {
-    -webkit-order: 0;
-        -ms-flex-order: 0;
-            order: 0;
-    width: 100%; }
-  md-card md-card-content {
-    -webkit-order: 1;
-        -ms-flex-order: 1;
-            order: 1;
-    padding: 16px; }
-
-@media screen and (-ms-high-contrast: active) {
-  md-card {
-    border: 1px solid #fff; } }
 
 md-content {
   display: block;
@@ -5593,73 +5593,6 @@ md-switch {
   md-switch.md-default-theme .md-thumb {
     background-color: #fff; } }
 
-md-input-group label, .md-input-group label {
-  display: block;
-  font-size: 0.75em; }
-md-input-group textarea, md-input-group input[type="text"], md-input-group input[type="password"], md-input-group input[type="datetime"], md-input-group input[type="datetime-local"], md-input-group input[type="date"], md-input-group input[type="month"], md-input-group input[type="time"], md-input-group input[type="week"], md-input-group input[type="number"], md-input-group input[type="email"], md-input-group input[type="url"], md-input-group input[type="search"], md-input-group input[type="tel"], md-input-group input[type="color"], .md-input-group textarea, .md-input-group input[type="text"], .md-input-group input[type="password"], .md-input-group input[type="datetime"], .md-input-group input[type="datetime-local"], .md-input-group input[type="date"], .md-input-group input[type="month"], .md-input-group input[type="time"], .md-input-group input[type="week"], .md-input-group input[type="number"], .md-input-group input[type="email"], .md-input-group input[type="url"], .md-input-group input[type="search"], .md-input-group input[type="tel"], .md-input-group input[type="color"] {
-  display: block;
-  border-width: 0 0 1px 0;
-  padding-top: 2px;
-  line-height: 26px;
-  padding-bottom: 1px; }
-  md-input-group textarea:focus, md-input-group input[type="text"]:focus, md-input-group input[type="password"]:focus, md-input-group input[type="datetime"]:focus, md-input-group input[type="datetime-local"]:focus, md-input-group input[type="date"]:focus, md-input-group input[type="month"]:focus, md-input-group input[type="time"]:focus, md-input-group input[type="week"]:focus, md-input-group input[type="number"]:focus, md-input-group input[type="email"]:focus, md-input-group input[type="url"]:focus, md-input-group input[type="search"]:focus, md-input-group input[type="tel"]:focus, md-input-group input[type="color"]:focus, .md-input-group textarea:focus, .md-input-group input[type="text"]:focus, .md-input-group input[type="password"]:focus, .md-input-group input[type="datetime"]:focus, .md-input-group input[type="datetime-local"]:focus, .md-input-group input[type="date"]:focus, .md-input-group input[type="month"]:focus, .md-input-group input[type="time"]:focus, .md-input-group input[type="week"]:focus, .md-input-group input[type="number"]:focus, .md-input-group input[type="email"]:focus, .md-input-group input[type="url"]:focus, .md-input-group input[type="search"]:focus, .md-input-group input[type="tel"]:focus, .md-input-group input[type="color"]:focus {
-    outline: 0; }
-md-input-group input, md-input-group textarea, .md-input-group input, .md-input-group textarea {
-  background: none; }
-
-md-input-group, .md-input-group {
-  padding-bottom: 2px;
-  margin: 10px 0 8px 0;
-  position: relative;
-  display: block; }
-  md-input-group label, .md-input-group label {
-    font-size: 1em;
-    z-index: 1;
-    pointer-events: none;
-    -webkit-font-smoothing: antialiased; }
-    md-input-group label:hover, .md-input-group label:hover {
-      cursor: text; }
-  md-input-group label, .md-input-group label {
-    -webkit-transform: translate3d(0, 22px, 0);
-            transform: translate3d(0, 22px, 0);
-    -webkit-transform-origin: left center;
-            transform-origin: left center;
-    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1);
-    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
-  md-input-group input, md-input-group textarea, .md-input-group input, .md-input-group textarea {
-    border-bottom-width: 1px;
-    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
-  md-input-group.md-input-focused label, .md-input-group.md-input-focused label {
-    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
-            transform: translate3d(0, 4px, 0) scale(0.75); }
-  md-input-group.md-input-focused input, md-input-group.md-input-focused textarea, .md-input-group.md-input-focused input, .md-input-group.md-input-focused textarea {
-    border-bottom-width: 2px; }
-  md-input-group.md-input-focused input, .md-input-group.md-input-focused input {
-    padding-bottom: 0px; }
-  md-input-group.md-input-has-value label, .md-input-group.md-input-has-value label {
-    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
-            transform: translate3d(0, 4px, 0) scale(0.75); }
-  md-input-group.md-input-has-value:not(.md-input-focused) label, .md-input-group.md-input-has-value:not(.md-input-focused) label {
-    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
-            transform: translate3d(0, 4px, 0) scale(0.75); }
-  md-input-group[disabled] input, md-input-group[disabled] textarea, .md-input-group[disabled] input, .md-input-group[disabled] textarea {
-    border-bottom-width: 0px; }
-  md-input-group[disabled] input, md-input-group[disabled] textarea, .md-input-group[disabled] input, .md-input-group[disabled] textarea {
-    background-size: 3px 1px;
-    background-position: 0 bottom;
-    background-size: 2px 1px;
-    background-repeat: repeat-x;
-    pointer-events: none; }
-  md-input-group[disabled] label, .md-input-group[disabled] label {
-    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
-            transform: translate3d(0, 4px, 0) scale(0.75); }
-  md-input-group[disabled] *:not(.md-input-has-value) label, .md-input-group[disabled] *:not(.md-input-has-value) label {
-    -webkit-transform: translate3d(0, 22px, 0);
-            transform: translate3d(0, 22px, 0);
-    -webkit-transform-origin: left center;
-            transform-origin: left center;
-    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
-
 md-tabs {
   box-sizing: border-box;
   display: block;
@@ -5827,6 +5760,73 @@ md-tab {
     z-index: 100;
     opacity: 1;
     overflow: hidden; }
+
+md-input-group label, .md-input-group label {
+  display: block;
+  font-size: 0.75em; }
+md-input-group textarea, md-input-group input[type="text"], md-input-group input[type="password"], md-input-group input[type="datetime"], md-input-group input[type="datetime-local"], md-input-group input[type="date"], md-input-group input[type="month"], md-input-group input[type="time"], md-input-group input[type="week"], md-input-group input[type="number"], md-input-group input[type="email"], md-input-group input[type="url"], md-input-group input[type="search"], md-input-group input[type="tel"], md-input-group input[type="color"], .md-input-group textarea, .md-input-group input[type="text"], .md-input-group input[type="password"], .md-input-group input[type="datetime"], .md-input-group input[type="datetime-local"], .md-input-group input[type="date"], .md-input-group input[type="month"], .md-input-group input[type="time"], .md-input-group input[type="week"], .md-input-group input[type="number"], .md-input-group input[type="email"], .md-input-group input[type="url"], .md-input-group input[type="search"], .md-input-group input[type="tel"], .md-input-group input[type="color"] {
+  display: block;
+  border-width: 0 0 1px 0;
+  padding-top: 2px;
+  line-height: 26px;
+  padding-bottom: 1px; }
+  md-input-group textarea:focus, md-input-group input[type="text"]:focus, md-input-group input[type="password"]:focus, md-input-group input[type="datetime"]:focus, md-input-group input[type="datetime-local"]:focus, md-input-group input[type="date"]:focus, md-input-group input[type="month"]:focus, md-input-group input[type="time"]:focus, md-input-group input[type="week"]:focus, md-input-group input[type="number"]:focus, md-input-group input[type="email"]:focus, md-input-group input[type="url"]:focus, md-input-group input[type="search"]:focus, md-input-group input[type="tel"]:focus, md-input-group input[type="color"]:focus, .md-input-group textarea:focus, .md-input-group input[type="text"]:focus, .md-input-group input[type="password"]:focus, .md-input-group input[type="datetime"]:focus, .md-input-group input[type="datetime-local"]:focus, .md-input-group input[type="date"]:focus, .md-input-group input[type="month"]:focus, .md-input-group input[type="time"]:focus, .md-input-group input[type="week"]:focus, .md-input-group input[type="number"]:focus, .md-input-group input[type="email"]:focus, .md-input-group input[type="url"]:focus, .md-input-group input[type="search"]:focus, .md-input-group input[type="tel"]:focus, .md-input-group input[type="color"]:focus {
+    outline: 0; }
+md-input-group input, md-input-group textarea, .md-input-group input, .md-input-group textarea {
+  background: none; }
+
+md-input-group, .md-input-group {
+  padding-bottom: 2px;
+  margin: 10px 0 8px 0;
+  position: relative;
+  display: block; }
+  md-input-group label, .md-input-group label {
+    font-size: 1em;
+    z-index: 1;
+    pointer-events: none;
+    -webkit-font-smoothing: antialiased; }
+    md-input-group label:hover, .md-input-group label:hover {
+      cursor: text; }
+  md-input-group label, .md-input-group label {
+    -webkit-transform: translate3d(0, 22px, 0);
+            transform: translate3d(0, 22px, 0);
+    -webkit-transform-origin: left center;
+            transform-origin: left center;
+    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1);
+    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
+  md-input-group input, md-input-group textarea, .md-input-group input, .md-input-group textarea {
+    border-bottom-width: 1px;
+    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
+  md-input-group.md-input-focused label, .md-input-group.md-input-focused label {
+    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
+            transform: translate3d(0, 4px, 0) scale(0.75); }
+  md-input-group.md-input-focused input, md-input-group.md-input-focused textarea, .md-input-group.md-input-focused input, .md-input-group.md-input-focused textarea {
+    border-bottom-width: 2px; }
+  md-input-group.md-input-focused input, .md-input-group.md-input-focused input {
+    padding-bottom: 0px; }
+  md-input-group.md-input-has-value label, .md-input-group.md-input-has-value label {
+    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
+            transform: translate3d(0, 4px, 0) scale(0.75); }
+  md-input-group.md-input-has-value:not(.md-input-focused) label, .md-input-group.md-input-has-value:not(.md-input-focused) label {
+    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
+            transform: translate3d(0, 4px, 0) scale(0.75); }
+  md-input-group[disabled] input, md-input-group[disabled] textarea, .md-input-group[disabled] input, .md-input-group[disabled] textarea {
+    border-bottom-width: 0px; }
+  md-input-group[disabled] input, md-input-group[disabled] textarea, .md-input-group[disabled] input, .md-input-group[disabled] textarea {
+    background-size: 3px 1px;
+    background-position: 0 bottom;
+    background-size: 2px 1px;
+    background-repeat: repeat-x;
+    pointer-events: none; }
+  md-input-group[disabled] label, .md-input-group[disabled] label {
+    -webkit-transform: translate3d(0, 4px, 0) scale(0.75);
+            transform: translate3d(0, 4px, 0) scale(0.75); }
+  md-input-group[disabled] *:not(.md-input-has-value) label, .md-input-group[disabled] *:not(.md-input-has-value) label {
+    -webkit-transform: translate3d(0, 22px, 0);
+            transform: translate3d(0, 22px, 0);
+    -webkit-transform-origin: left center;
+            transform-origin: left center;
+    transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1); }
 
 md-toast {
   display: -webkit-flex;
