@@ -5,11 +5,11 @@
   .tabsdemoStaticTabs .sample {
     height: 450px; }
   .tabsdemoStaticTabs #tab1-content {
-    background-color: #3F51B5; }
+    background-color: #424242; }
   .tabsdemoStaticTabs #tab2-content {
-    background-color: #673AB7; }
+    background-color: #4c4c4c; }
   .tabsdemoStaticTabs #tab3-content {
-    background-color: #00796B; }
+    background-color: #999999; }
   .tabsdemoStaticTabs .tabpanel-container {
     display: block;
     position: relative;
@@ -44,7 +44,7 @@
     margin-top: 26px;
     margin-left: 0px; }
   .tabsdemoStaticTabs .md-header {
-    background-color: #1976D2 !important; }
+    background-color: #0070CC !important; }
   .tabsdemoStaticTabs md-tab {
     color: #90caf9 !important; }
   .tabsdemoStaticTabs md-tab.active, .tabsdemoStaticTabs md-tab:focus {

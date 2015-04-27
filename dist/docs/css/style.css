@@ -520,4 +520,166 @@ md-content.demo-source-container > hljs > pre > code.highlight {
 }
 
 
-div {border-top: 1px solid red;}
+
+
+/*   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   *   */
+
+/* DEFAULT THEME CSS ADDITIONS BY TGS - (Red/Grey/White) */
+
+/* SIDEBAR HEADER TITLE INDENTING */ 
+.docs-logotype {text-indent: 0px !important;}
+
+/* CHECKBOXES 
+md-checkbox.md-default-theme.md-checked .md-icon {background-color: #000000;} */
+md-checkbox.md-default-theme:not([disabled]).md-primary.md-checked .md-icon {background-color: #4c4c4c !important;}
+
+
+
+/* CODE HIGHLIGHTING 
+*/
+code:not(.highlight) {color: #680096 !important;}
+
+
+/* SIDENAV */
+.docs-menu .md-button.active {color: #EF1D2D; font-weight: 500 !important;} /* Alternate {color: #580e8b;} */
+.docs-menu .md-button {text-transform: none;}
+.docs-menu .md-button md-toggle-icon {display: none;}
+/*  .docs-menu .md-button-toggle .md-toggle-icon {display: none;} TOGGLE ICONS ON SIDENAV MENU BUTTONS */
+
+
+.docs-menu li.parentActive, .docs-menu li.parentActive .menu-toggle-list {background-color: rgba(239, 239, 239, .3);}
+
+
+
+
+.docs-menu {background-color: rgba(179, 167, 125, 0);}
+body md-content.md-default-theme {background-color: none !important;}
+.md-button.md-default-theme:not([disabled]):hover {background-color: rgba(158,158,158,0.1);}
+.md-button.md-default-theme:not([disabled]):focus {background-color: rgba(158,158,158,0.2);}
+
+
+/* md-sidenav.md-locked-open, md-sidenav.md-locked-open.md-closed, md-sidenav.md-locked-open.md-closed.md-sidenav-left, md-sidenav.md-locked-open.md-closed, md-sidenav.md-locked-open.md-closed.md-sidenav-right, md-sidenav.md-locked-open-remove.md-closed 
+{background-color: red;}
+*/ 
+
+/* BRANDED SIDENAV
+.md-sidenav-left md-toolbar.md-default-theme {background-color: #f6f6f6; color: #454545;}
+*/
+/* Hover  .md-button.md-default-theme:not([disabled]):hover, .md-button.md-default-theme:not([disabled]):focus {background-color: rgba(158,158,158,0.9);}
+*/
+
+/* Nav Logo */
+.navfooter {width: 100%; background-color: #f6f6f6;}
+.navfooter div {width: 100%; text-align: left; position: absolute; bottom: 0px; left: 0px; background-color: #f6f6f6; padding-left: 14px;}
+.navfooter div img {height: 53px; width: 45%; display: none; }
+
+.navicons {position: relative; top: 7px;}
+.navsectionname {padding-left: 6px;}
+
+
+/* TOOLBARS */
+md-toolbar.md-default-theme {background-color: #424242;}
+.toolbarDemo1 md-toolbar.md-default-theme:first-child {background-color: #424242;}
+
+
+/*
+md-toolbar.md-default-theme.md-warn {background-color: rgb(181,0,14);}
+md-toolbar.md-default-theme.md-accent {background-color: #580e8b;}
+md-toolbar.md-default-theme.md-hue-3.md-warn {background-color: rgb(181,0,14); color: white;}
+
+md-toolbar.toolbar-hue-1 {background-color: #999999 !important;}
+md-toolbar.toolbar-hue-2 {background-color: #0066cc !important;}
+md-toolbar.toolbar-hue-3 {background-color: #0066cc !important;}
+*/
+md-toolbar.demo-toolbar, .demo-source-tabs md-tab, .demo-source-tabs .tabs-header {background: #efefef !important; color: #4c4c4c;}
+md-toolbar.demo-toolbar .md-button {color: #4c4c4c;}
+
+
+/* TOOLBAR BUTTON HOVER */
+md-toolbar.md-default-theme .md-button:hover {background-color: rgba(255, 255, 255, .1) !important;}
+
+
+
+/* FAB
+.md-button.md-default-theme.md-fab {background-color: #580e8b;}
+
+.md-button.md-default-theme.md-accent.md-raised, .md-button.md-default-theme.md-accent.md-fab {background-color: red;}
+ */
+
+
+/* Turn Off Alternate Hue 
+.md-button.md-default-theme.md-hue-2.md-primary.md-raised, .md-button.md-default-theme.md-hue-2.md-primary.md-fab {display: none;}
+*/
+
+/* BUTTONS 
+.md-button.md-default-theme.md-accent {color: #580e8b;}
+.md-button.md-default-theme.md-hue-1.md-accent.md-raised, .md-button.md-default-theme.md-hue-1.md-accent.md-fab {background-color: #9f60b5; color: white;}
+
+.button-hue-1 {background-color: #0099cc !important;}
+.button-hue-2 {background-color: #0066cc !important;}
+.button-hue-3 {background-color: #003366 !important;}
+*/
+
+
+/* DARK THEME */
+md-input-container.md-docs-dark-theme:not(.md-input-invalid).md-input-focused label {color: #B9D8F1 !important;}
+md-input-container.md-docs-dark-theme:not(.md-input-invalid).md-input-focused .md-input {border-color: #B9D8F1 !important;}
+
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label {color: #0070CC !important;}
+md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input{border-color: #0070CC !important;}
+
+
+
+.md-input-focused label {color: #red !important;}
+.md-input-focused .md-input {border-color: #red !important;}
+
+
+/* RADIO BUTTONS */
+
+md-radio-button.md-default-theme .md-on {background-color: #206FCA;}
+md-radio-button.md-default-theme.md-checked .md-off {border-color: #206FCA;}
+.radioButtondemoBasicUsage .radioValue {color: #000000 !important;}
+
+
+/* LINKS */
+
+
+a {
+  color: #00A7E1;
+  text-decoration: none; }
+
+
+/* DROP DOWN SELECTED ITEM 
+md-select-menu.md-default-theme md-option[selected] {color: #ffffff;}
+*/
+*/
+
+
+/* TEXT 
+button, select, html, textarea, input {font-family: 'Helvetica Neue', RobotoDraft, Roboto, sans-serif;}
+*/
+
+
+
+/* TABS
+*/
+md-button md-default-theme active {font-weight: bold !important}
+md-tabs.md-default-theme md-tabs-ink-bar {background-color: #0070CC; color: #ffffff;}
+md-tabs.md-default-theme md-tab.active {color: #4c4c4c ; font-weight: 500; background-color: transparent;}
+ 
+ md-tabs-ink-bar {background-color: green;}
+.tabsdemoStaticTabs md-header {background-color: #4c4c4c !important;}
+md-toolbar.md-default-theme.md-accent {background-color: #0070CC !important;}
+ 
+
+/* SIDENAV SLECTED ITEM 
+.site-sidenav .md-button.md-default-theme:not([disabled]):focus {background-color: background-color: rgba(242, 242, 235, .5);}
+.site-sidenav .md-button.md-default-theme:not([disabled]):hover background-color: rgba(242, 242, 235, .5);}
+
+.site-sidenav .md-button.md-default-theme:not([disabled]):focus {background-color: rgba(0, 0, 0, .4;)}
+.site-sidenav .md-button.md-default-theme:not([disabled]):hover {background-color: rgba(0, 0, 0, .4;)}
+
+*/
+
+
+

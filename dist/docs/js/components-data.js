@@ -45,28 +45,6 @@ DocsApp
     ]
   },
   {
-    "name": "material.components.checkbox",
-    "type": "module",
-    "outputPath": "partials/api/material.components.checkbox/index.html",
-    "url": "api/material.components.checkbox",
-    "label": "material.components.checkbox",
-    "hasDemo": false,
-    "module": ".",
-    "githubUrl": "https://github.com/angular/material/blob/master/src/components/./..js",
-    "docs": [
-      {
-        "name": "mdCheckbox",
-        "type": "directive",
-        "outputPath": "partials/api/material.components.checkbox/directive/mdCheckbox.html",
-        "url": "api/material.components.checkbox/directive/mdCheckbox",
-        "label": "mdCheckbox",
-        "hasDemo": true,
-        "module": "material.components.checkbox",
-        "githubUrl": "https://github.com/angular/material/blob/master/src/components/checkbox/checkbox.js"
-      }
-    ]
-  },
-  {
     "name": "material.components.card",
     "type": "module",
     "outputPath": "partials/api/material.components.card/index.html",
@@ -85,6 +63,28 @@ DocsApp
         "hasDemo": true,
         "module": "material.components.card",
         "githubUrl": "https://github.com/angular/material/blob/master/src/components/card/card.js"
+      }
+    ]
+  },
+  {
+    "name": "material.components.checkbox",
+    "type": "module",
+    "outputPath": "partials/api/material.components.checkbox/index.html",
+    "url": "api/material.components.checkbox",
+    "label": "material.components.checkbox",
+    "hasDemo": false,
+    "module": ".",
+    "githubUrl": "https://github.com/angular/material/blob/master/src/components/./..js",
+    "docs": [
+      {
+        "name": "mdCheckbox",
+        "type": "directive",
+        "outputPath": "partials/api/material.components.checkbox/directive/mdCheckbox.html",
+        "url": "api/material.components.checkbox/directive/mdCheckbox",
+        "label": "mdCheckbox",
+        "hasDemo": true,
+        "module": "material.components.checkbox",
+        "githubUrl": "https://github.com/angular/material/blob/master/src/components/checkbox/checkbox.js"
       }
     ]
   },

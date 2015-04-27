@@ -24,7 +24,7 @@ md-toolbar .md-button.md-THEME_NAME-theme.md-fab {
       &:not([disabled]) {
         &:hover, 
         &:focus {
-          background-color: '{{primary-600}}';
+          background-color: '{{primary-700}}';
         }
       }
     }
@@ -37,7 +37,7 @@ md-toolbar .md-button.md-THEME_NAME-theme.md-fab {
     &:not([disabled]) {
       &:hover, 
       &:focus {
-        background-color: '{{accent-A700}}';
+        background-color: '{{accent-600}}';
       }
     }
   }
@@ -79,7 +79,7 @@ md-toolbar .md-button.md-THEME_NAME-theme.md-fab {
       &:not([disabled]) {
         &:hover, 
         &:focus {
-          background-color: '{{accent-700}}';
+          background-color: '{{accent-600}}';
         }
       }
     }

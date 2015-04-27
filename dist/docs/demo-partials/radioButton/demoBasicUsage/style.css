@@ -11,7 +11,8 @@
   padding-left: 20px; }
 .radioButtondemoBasicUsage .radioValue {
   margin-left: 5px;
-  color: #0f9d58;
+  color: #005cb8;
+  /* #0f9d58; ORIGINAL */
   font-weight: bold;
   padding: 5px; }
 .radioButtondemoBasicUsage md-icon {
