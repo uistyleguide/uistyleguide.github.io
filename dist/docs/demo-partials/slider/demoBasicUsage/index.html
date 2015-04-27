@@ -10,7 +10,7 @@
       <div flex="10" layout layout-align="center center">
         <span>R</span>
       </div>
-      <md-slider flex min="0" max="255" ng-model="color.red" aria-label="red" id="red-slider" class="md-primary md-hue-1">
+      <md-slider flex min="0" max="255" ng-model="color.red" aria-label="red" id="red-slider" class="md-primary md-hue-3">
       </md-slider>
       <div flex="20" layout layout-align="center center">
         <input type="number" ng-model="color.red" aria-label="red" aria-controls="red-slider">
@@ -21,7 +21,7 @@
       <div flex="10" layout layout-align="center center">
         <span>G</span>
       </div>
-      <md-slider flex ng-model="color.green" min="0" max="255" aria-label="green" id="green-slider" class="md-accent">
+      <md-slider flex ng-model="color.green" min="0" max="255" aria-label="green" id="green-slider" class="md-primary md-hue-3">
       </md-slider>
       <div flex="20" layout layout-align="center center">
         <input type="number" ng-model="color.green" aria-label="green" aria-controls="green-slider">
@@ -44,7 +44,7 @@
       <div flex="10" layout layout-align="center center">
         <span>default</span>
       </div>
-      <md-slider flex md-discrete ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
+      <md-slider flex class="md-primary md-hue-3" md-discrete ng-model="rating1" step="1" min="1" max="5" aria-label="rating">
       </md-slider>
     </div>
     <div layout>

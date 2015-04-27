@@ -131,6 +131,25 @@
   }
 })();
 
+
+angular.module('buttonsDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
+  $scope.title1 = 'Button';
+  $scope.title4 = 'Warn';
+  $scope.isDisabled = true;
+
+  $scope.googleUrl = 'http://google.com';
+
+});
+
+
+angular.module('cardDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
+
+});
+
 angular.module('bottomSheetDemo1', ['ngMaterial'])
 
 .controller('BottomSheetExample', function($scope, $timeout, $mdBottomSheet) {
@@ -191,32 +210,6 @@ angular.module('bottomSheetDemo1', ['ngMaterial'])
 });
 
 
-angular.module('buttonsDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope) {
-  $scope.title1 = 'Button';
-  $scope.title4 = 'Warn';
-  $scope.isDisabled = true;
-
-  $scope.googleUrl = 'http://google.com';
-
-});
-
-
-angular.module('contentDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope) {
-
-});
-
-
-angular.module('cardDemo1', ['ngMaterial'])
-
-.controller('AppCtrl', function($scope) {
-
-});
-
-
 angular.module('checkboxDemo1', ['ngMaterial'])
 
 .controller('AppCtrl', function($scope) {
@@ -227,6 +220,13 @@ angular.module('checkboxDemo1', ['ngMaterial'])
   $scope.data.cb3 = false;
   $scope.data.cb4 = false;
   $scope.data.cb5 = false;
+
+});
+
+
+angular.module('contentDemo1', ['ngMaterial'])
+
+.controller('AppCtrl', function($scope) {
 
 });
 
@@ -426,16 +426,6 @@ angular.module('gridListDemo1', ['ngMaterial'])
 });
 
 
-angular.module('appDemoSvgIcons', ['ngMaterial'])
-.controller('DemoCtrl', function( $scope ) {
-
-    $scope.insertDriveIconURL = 'img/icons/ic_insert_drive_file_24px.svg';
-    $scope.getAndroid = function() {
-      return 'img/icons/android.svg';
-    }
-});
-
-
 angular
   .module('appDemoFontIcons', ['ngMaterial'])
   .controller('DemoCtrl', function( $scope ) {
@@ -469,6 +459,16 @@ angular
           .accentPalette('green')
           .warnPalette('blue');
   });
+
+
+angular.module('appDemoSvgIcons', ['ngMaterial'])
+.controller('DemoCtrl', function( $scope ) {
+
+    $scope.insertDriveIconURL = 'img/icons/ic_insert_drive_file_24px.svg';
+    $scope.getAndroid = function() {
+      return 'img/icons/android.svg';
+    }
+});
 
 
 angular.module('appSvgIconSets', ['ngMaterial'])

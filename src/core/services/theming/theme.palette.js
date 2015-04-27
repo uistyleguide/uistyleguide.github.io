@@ -523,7 +523,7 @@ angular.module('material.core.theming.palette', [])
     '600': '#104FAC',
     '700': '#0E4695',
     '800': '#0C3B7E',
-    '900': '#424242',
+    '900': '#4c4c4c',
     'A100': '#B8B8B8',
     'A200': '#d5ffff',
     'A400': '#0070CC',
