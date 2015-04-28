@@ -168,19 +168,36 @@ exports.buildNgMaterialDefinition = function() {
 function moduleNameToClosureName(name) {
   return 'ng.' + name;
 }
+exports.addJsWrapper = function() {
+  return through2.obj(function(file, enc, next) {
+    var moduleInfo = getModuleInfo(file.contents);
+    if (moduleInfo.module) {
+      file.contents = new Buffer([
+          '(function () {',
+          '"use strict";',
+          file.contents.toString(),
+          '})();'
+      ].join('\n'));
+    }
+    this.push(file);
+    next();
+  });
+};
 exports.addClosurePrefixes = function() {
   return through2.obj(function(file, enc, next) {
     var moduleInfo = getModuleInfo(file.contents);
     if (moduleInfo.module) {
-
-      var provide = 'goog.provide(\'' + moduleNameToClosureName(moduleInfo.module) + '\');';
+      var closureModuleName = moduleNameToClosureName(moduleInfo.module);
       var requires = (moduleInfo.dependencies || []).sort().map(function(dep) {
         return dep.indexOf(moduleInfo.module) === 0 ? '' : 'goog.require(\'' + moduleNameToClosureName(dep) + '\');';
       }).join('\n');
 
-      file.contents = new Buffer(
-        provide + '\n' + requires + '\n' + file.contents.toString()
-      );
+      file.contents = new Buffer([
+          'goog.provide(\'' + closureModuleName + '\');',
+          requires,
+          file.contents.toString(),
+          closureModuleName + ' = angular.module("' + moduleInfo.module + '");'
+      ].join('\n'));
     }
     this.push(file);
     next();
@@ -190,17 +207,13 @@ exports.addClosurePrefixes = function() {
 exports.buildModuleBower = function(name, version) {
   return through2.obj(function(file, enc, next) {
     this.push(file);
-
-    
     var moduleInfo = getModuleInfo(file.contents);
     if (moduleInfo.module) {
       var bowerDeps = {};
-
       (moduleInfo.dependencies || []).forEach(function(dep) {
         var convertedName = 'angular-material-' + dep.split('.').pop();
         bowerDeps[convertedName] = version;
       });
-
       var bowerContents = JSON.stringify({
         name: 'angular-material-' + name,
         version: version,

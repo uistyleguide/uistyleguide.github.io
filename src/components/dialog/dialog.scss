@@ -33,14 +33,14 @@ md-dialog {
   display: flex;
   flex-direction: column;
 
-  md-content {
+  md-dialog-content {
     order: 1;
-    padding: 24px;
+    padding: $baseline-grid * 3;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 
     &:not([layout=row]) > *:first-child:not(.md-subheader) {
-      margin-top: 0px;
+      margin-top: 0;
     }
 
     &:focus {
@@ -54,11 +54,18 @@ md-dialog {
     box-sizing: border-box;
     align-items: center;
     justify-content: flex-end;
-    padding: 16px 16px;
-    min-height: $baseline-grid * 5;
+    margin-bottom: 0;
+    padding-right: $baseline-grid;
+    padding-left: $baseline-grid * 3;
+    min-height: $baseline-grid * 6.5;
 
     > * {
-      margin-left: 8px;
+      margin-left: $baseline-grid / 2;
+      margin-right: 0;
+    }
+    .md-button {
+      margin-bottom: $baseline-grid;
+      margin-top: $baseline-grid;
     }
   }
   &.md-content-overflow .md-actions {
