@@ -48,8 +48,19 @@ a.md-button.md-THEME_NAME-theme,
           background-color: '{{primary-color}}';
         }
         &.md-focused {
+          background-color: '{{primary-600}}';
+        }
+        &:hover {
+          background-color: '{{primary-color}}';
+        }
+        &.md-focused {
           background-color: '{{primary-700}}';
         }
+      }
+    }
+    &:not([disabled]) {
+      md-icon {
+        color: '{{primary-color}}';
       }
     }
     &:not([disabled]) {
