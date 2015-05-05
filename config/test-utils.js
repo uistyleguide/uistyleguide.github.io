@@ -16,7 +16,7 @@ var TestUtil = {
       };
     });
     // Un-mock focus after the test is done
-    test.after(function() {
+    afterEach(function() {
       angular.element.prototype.focus = focus;
     });
   },
@@ -29,58 +29,129 @@ beforeEach(function() {
    * Create a fake version of $$rAF that does things synchronously
    */
   module('ng', function($provide) {
-    $provide.value('$$rAF', mockRaf);
+    /**
+     * Add throttle() and wrap .flush() to catch `no callbacks present`
+     * errors
+     */
+    $provide.decorator('$$rAF', function throttleInjector($delegate){
 
-    function mockRaf(cb) {
-      cb();
-    }
-    mockRaf.throttle = function(cb) {
-      return function() {
-        cb.apply(this, arguments);
+      $delegate.throttle = function(cb) {
+        return function() {
+          cb.apply(this, arguments);
+        };
       };
-    };
+
+      var ngFlush = $delegate.flush;
+      $delegate.flush = function() {
+          try      { ngFlush();  }
+          catch(e) { ;           }
+      };
+
+      return $delegate;
+    });
+
   });
 
-  this.addMatchers({
-    // toHaveClass matcher from angularjs test helpers
-    toHaveClass: function(clazz) {
-      this.message = function() {
-        return "Expected '" + angular.mock.dump(this.actual) +
-          (this.isNot ? ' not' : '') + " to have class '" + clazz + "'.";
-      };
-      var classes = clazz.trim().split(/\s+/);
-      for (var i=0; i<classes.length; ++i) {
-        if (!angular.element(this.actual).hasClass(classes[i])) {
-          return false;
+
+  jasmine.addMatchers({
+
+    toHaveClass: function() {
+      return {
+        compare: function(actual, expected) {
+          var results = { pass : true };
+          var classes = expected.trim().split(/\s+/);
+
+          for (var i=0; i<classes.length; ++i) {
+            if (!angular.element(actual).hasClass(classes[i])) {
+              results.pass = false;
+            }
+          }
+
+          var negation = !results.pass ? "" : " not ";
+
+          results.message = "";
+          results.message += "Expected '";
+          results.message += angular.mock.dump(actual);
+          results.message += negation + "to have class '" + expected + "'.";
+
+          return results;
         }
-      }
-      return true;
+      };
     },
+
     /**
      * A helper to match the type of a given value
      * @example expect(1).toBeOfType('number')
      */
     toBeOfType: function(type) {
-      this.message = function() {
-        return "Expected " + angular.mock.dump(this.actual) + " of type " +
-          (typeof this.actual) + (this.isNot ? ' not ' : '') + " to have type '" + type + "'.";
+      return {
+        compare: function(actual, expected) {
+          var results = {
+              pass : typeof actual == expected
+           };
+
+          var negation = !results.pass ? "" : " not ";
+
+          results.message = "";
+          results.message += "Expected ";
+          results.message += angular.mock.dump(actual) + " of type ";
+          results.message += (typeof actual);
+          results.message += negation + "to have type '" + type + "'.";
+
+          return results;
+        }
       };
-      return typeof this.actual == type;
     },
 
-    toHaveFields: function(fields) {
-      this.message = function() {
-        return "Expected " + angular.mock.dump(this.actual) + (this.isNot ? ' not ' : ' ') +
-          "to have fields matching " + angular.mock.dump(fields);
-      };
-      for (var key in fields) {
-        if (!(this.actual || {}).hasOwnProperty(key) ||
-            !angular.equals(this.actual[key], fields[key])) {
-          return false;
+    toHaveFields: function() {
+      return {
+        compare: function(actual, expected) {
+          var results = { pass : true  };
+
+          for (var key in expected) {
+            if (!(actual || {}).hasOwnProperty(key) || !angular.equals(actual[key], expected[key])) {
+              results.pass = false;
+            }
+          }
+
+          var negation = !results.pass ? "" : " not ";
+
+          results.message = "";
+          results.message += "Expected ";
+          results.message += angular.mock.dump(actual) + " of type ";
+          results.message += (typeof actual);
+          results.message += negation + "to have fields matching '" + angular.mock.dump(expected);
+
+          return results;
         }
-      }
-      return true;
+      };
     }
+
   });
+
+});
+
+
+beforeEach(function() {
+
+    /**
+     * Create a fake version of $$rAF that does things synchronously
+     */
+    module('material.core', function($provide) {
+
+      /**
+       * Intercept to make .expectWithText() to be synchronous
+       */
+      $provide.decorator('$mdAria', function($delegate){
+
+        $delegate.expectWithText = function(element, attrName){
+          $delegate.expect(element, attrName, element.text().trim());
+        };
+
+        return $delegate;
+      });
+
+    });
+
 
 });

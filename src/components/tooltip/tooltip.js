@@ -1,6 +1,3 @@
-(function() {
-'use strict';
-
 /**
  * @ngdoc module
  * @name material.components.tooltip
@@ -22,11 +19,12 @@ angular
  *
  * @usage
  * <hljs lang="html">
- * <md-icon icon="/img/icons/ic_play_arrow_24px.svg">
+ * <md-button class="md-fab md-accent" aria-label="Play">
  *   <md-tooltip>
  *     Play Music
  *   </md-tooltip>
- * </md-icon>
+ *   <md-icon icon="/img/icons/ic_play_arrow_24px.svg"></md-icon>
+ * </md-button>
  * </hljs>
  *
  * @param {expression=} md-visible Boolean bound to whether the tooltip is
@@ -43,6 +41,7 @@ function MdTooltipDirective($timeout, $window, $$rAF, $document, $mdUtil, $mdThe
   return {
     restrict: 'E',
     transclude: true,
+    priority:210, // Before ngAria
     template: '\
         <div class="md-background"></div>\
         <div class="md-content" ng-transclude></div>',
@@ -138,9 +137,19 @@ function MdTooltipDirective($timeout, $window, $$rAF, $document, $mdUtil, $mdThe
     }
 
     function showTooltip() {
-      // Insert the element before positioning it, so we can get position
-      parent.attr('aria-describedby', element.attr('id'));
+      // Insert the element before positioning it, so we can get the position
+      // and check if we should display it
       tooltipParent.append(element);
+
+      // Check if we should display it or not.
+      // This handles hide-* and show-* along with any user defined css
+      var computedStyles = $window.getComputedStyle(element[0]);
+      if (angular.isDefined(computedStyles.display) && computedStyles.display == 'none') {
+        element.detach();
+        return;
+      }
+
+      parent.attr('aria-describedby', element.attr('id'));
 
       positionTooltip();
       angular.forEach([element, background, content], function (element) {
@@ -219,4 +228,3 @@ function MdTooltipDirective($timeout, $window, $$rAF, $document, $mdUtil, $mdThe
   }
 
 }
-})();

@@ -17,6 +17,15 @@
     color: $color;
   }
 }
+
+@mixin pie-clearfix {
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
 @function map-to-string($map) {
   $map-str: '{';
   $keys: map-keys($map);
@@ -30,4 +39,13 @@
     }
   }
   @return $map-str + '}';
+}
+
+
+/* mixin definition ; sets LTR and RTL within the same style call */
+@mixin rtl($prop, $value, $rtl-value) {
+  #{$prop}: $value;
+  html[dir=rtl] & {
+    #{$prop}: $rtl-value;
+  }
 }

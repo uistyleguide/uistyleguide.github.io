@@ -18,12 +18,12 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '\n' +
     '    <div ng-transclude></div>\n' +
     '\n' +
-    '    <section class="demo-container"\n' +
+    '    <section class="demo-container md-whiteframe-z1"\n' +
     '      ng-class="{\'show-source\': demoCtrl.$showSource}" >\n' +
     '\n' +
     '      <md-toolbar class="demo-toolbar">\n' +
     '        <div class="md-toolbar-tools">\n' +
-    '          <span>{{demoCtrl.demoTitle}}</span>\n' +
+    '          <h3>{{demoCtrl.demoTitle}}</h3>\n' +
     '          <span flex></span>\n' +
     '          <md-button\n' +
     '            style="min-width: 72px; margin-left: auto;"\n' +
@@ -39,18 +39,17 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '      </md-toolbar>\n' +
     '\n' +
     '      <!-- Source views -->\n' +
-    '      <md-tabs style="border-top: solid 1px #00ADC3;"\n' +
-    '        class="demo-source-tabs" ng-show="demoCtrl.$showSource">\n' +
+    '      <md-tabs class="demo-source-tabs" ng-show="demoCtrl.$showSource" style="min-height: 0;">\n' +
     '        <md-tab ng-repeat="file in demoCtrl.orderedFiles" label="{{file.name}}">\n' +
     '          <md-content md-scroll-y class="demo-source-container">\n' +
-    '            <hljs code="file.contentsPromise" lang="{{file.fileType}}" should-interpolate="demoCtrl.interpolateCode">\n' +
+    '            <hljs class="no-header" code="file.contentsPromise" lang="{{file.fileType}}" should-interpolate="demoCtrl.interpolateCode">\n' +
     '            </hljs>\n' +
-    '          </md-c>\n' +
+    '          </md-content>\n' +
     '        </md-tab>\n' +
     '      </md-tabs>\n' +
     '\n' +
     '      <!-- Live Demos -->\n' +
-    '      <demo-include files="demoCtrl.files" module="demoCtrl.demoModule" class="md-whiteframe-z1 {{demoCtrl.demoId}}">\n' +
+    '      <demo-include files="demoCtrl.files" module="demoCtrl.demoModule" class="{{demoCtrl.demoId}}">\n' +
     '      </demo-include>\n' +
     '    </section>\n' +
     '\n' +
@@ -62,13 +61,17 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
 angular.module('docsApp').run(['$templateCache', function($templateCache) {
   $templateCache.put('partials/getting-started.tmpl.html',
     '<div ng-controller="GuideCtrl" layout="column" class="doc-content">\n' +
-    '  <md-content class="extraPad">\n' +
-    '    <p><em>New to Angular.js? Before getting into Angular Material, it might be helpful to <a href="https://egghead.io/articles/new-to-angularjs-start-learning-here" target="_blank" title="Link opens in a new window">read about the framework</a>.</em></p>\n' +
+    '  <md-content>\n' +
+    '    <p><em>New to Angular.js? Before getting into Angular Material, it might be helpful to\n' +
+    '      <a href="https://egghead.io/articles/new-to-angularjs-start-learning-here" target="_blank"\n' +
+    '         title="Link opens in a new window">read about the framework</a>.</em></p>\n' +
     '\n' +
     '    <h2>How do I start?</h2>\n' +
     '    <ul style="margin-bottom: 2em;">\n' +
-    '      <li><a href="http://codepen.io/collection/AxKKgY/" target="_blank" title="Link opens in a new window">Fork a Codepen</a></li>\n' +
-    '      <li><a href="https://github.com/angular/material-start" target="_blank" title="Link opens in a new window">Clone a Github Starter Project</a></li>\n' +
+    '      <li><a href="http://codepen.io/collection/AxKKgY/" target="_blank"\n' +
+    '             title="Link opens in a new window">Fork a Codepen</a></li>\n' +
+    '      <li><a href="https://github.com/angular/material-start" target="_blank"\n' +
+    '             title="Link opens in a new window">Clone a Github Starter Project</a></li>\n' +
     '    </ul>\n' +
     '\n' +
     '    <h3>Including Angular Material and its dependencies</h3>\n' +
@@ -77,7 +80,11 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '      <li><a href="https://github.com/angular/material#cdn">Using a CDN</a> (example below)</li>\n' +
     '    </ul>\n' +
     '\n' +
-    '    <iframe height=\'280\' scrolling=\'no\' data-default-tab="html" src=\'//codepen.io/marcysutton/embed/OPbpKm?default-tab=html\' frameborder=\'no\' allowtransparency=\'true\' allowfullscreen=\'true\' style=\'width: 100%;\'>See the Pen <a href=\'http://codepen.io/marcysutton/pen/OPbpKm/\'>Angular Material Dependencies</a> on <a href=\'http://codepen.io\'>CodePen</a>.\n' +
+    '    <iframe height=\'272\' scrolling=\'no\' data-default-tab="html"\n' +
+    '            src=\'//codepen.io/marcysutton/embed/OPbpKm?height=272&theme-id=11083\'\n' +
+    '            frameborder=\'no\' allowtransparency=\'true\' allowfullscreen=\'true\' style=\'width: 100%;\'>\n' +
+    '      See the Pen <a href=\'http://codepen.io/marcysutton/pen/OPbpKm/\'>Angular Material Dependencies</a>\n' +
+    '      on <a href=\'http://codepen.io\'>CodePen</a>.\n' +
     '    </iframe>\n' +
     '\n' +
     '    <md-divider></md-divider>\n' +
@@ -108,7 +115,7 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
 angular.module('docsApp').run(['$templateCache', function($templateCache) {
   $templateCache.put('partials/home.tmpl.html',
     '<div ng-controller="HomeCtrl" layout="column" class="doc-content">\n' +
-    '    <md-content class="extraPad">\n' +
+    '    <md-content>\n' +
     '        <p>The <strong>Angular Material</strong> project is an implementation of Material Design in Angular.js. This project provides a set of reusable, well-tested, and accessible UI components based on the Material Design system.</p>\n' +
     '\n' +
     '        <p>Similar to the\n' +
@@ -134,7 +141,7 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '          <li flex="25" flex-md="50" flex-sm="50">\n' +
     '            <md-card>\n' +
     '              <md-card-content>\n' +
-    '                <a ng-href="#/layout/">Customization</a>\n' +
+    '                <a ng-href="#/CSS/typography">Customization</a>\n' +
     '              </md-card-content>\n' +
     '            </md-card>\n' +
     '          </li>\n' +
@@ -156,9 +163,12 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '            Below is a brief video that presents the Material Design system:\n' +
     '        </p>\n' +
     '\n' +
-    '        <md-content layout="row" layout-align="center center" style="padding-bottom: 25px;" >\n' +
-    '            <iframe width="560" height="315" title="Material Design" src="//www.youtube.com/embed/Q8TXgCzxEnw"\n' +
-    '                    frameborder="0" allowfullscreen></iframe>\n' +
+    '        <md-content>\n' +
+    '          <div style="max-width: 560px; margin: 0 auto;">\n' +
+    '            <div class="responsive-video">\n' +
+    '              <iframe title="Material Design" src="//www.youtube.com/embed/Q8TXgCzxEnw" frameborder="0" allowfullscreen></iframe>\n' +
+    '            </div>\n' +
+    '          </div>\n' +
     '        </md-content>\n' +
     '        <ul>\n' +
     '            <li>These docs were generated from source in the `master` branch:\n' +
@@ -189,13 +199,12 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '\n' +
     '  <p>\n' +
     '    The <code>layout-align</code> attribute takes two words.\n' +
-    '    The first word says how the children will be aligned in the layout\'s direction, and the second word says how the children will be aligned perpindicular to the layout\'s direction.\n' +
-    '    <br/>\n' +
-    '    Only one word is required for the attribute. For example, <code>layout="row" layout-align="center"</code> would make the elements center horizontally and use the default behavior vertically.\n' +
-    '    <br/>\n' +
-    '    <code>layout="column" layout-align="center end"</code> would make\n' +
-    '    children align along the center vertically and along the end (right) horizontally.\n' +
-    '  </p>\n' +
+    '    The first word says how the children will be aligned in the layout\'s direction, and the second word says how the children will be aligned perpendicular to the layout\'s direction.</p>\n' +
+    '\n' +
+    '    <p>Only one word is required for the attribute. For example, <code>layout="row" layout-align="center"</code> would make the elements center horizontally and use the default behavior vertically.</p>\n' +
+    '\n' +
+    '    <p><code>layout="column" layout-align="center end"</code> would make\n' +
+    '    children align along the center vertically and along the end (right) horizontally.</p>\n' +
     '  <table>\n' +
     '    <tr>\n' +
     '      <td>layout-align</td>\n' +
@@ -289,7 +298,7 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '\n' +
     '  <p>\n' +
     '    The layout system is based upon element attributes rather than CSS classes.\n' +
-    '    Attributes provide an easy way to set a value (eg `layout="row"`), and additionally\n' +
+    '    Attributes provide an easy way to set a value (eg <code>layout="row"</code>), and additionally\n' +
     '    helps us separate concerns: attributes define layout, and classes define styling.\n' +
     '  </p>\n' +
     '\n' +
@@ -315,43 +324,6 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '  <p>\n' +
     '    See <a href="#/layout/options">Layout Options</a> for information on responsive layouts and other options.\n' +
     '  </p>\n' +
-    '\n' +
-    '  <!--\n' +
-    '  <md-divider>\n' +
-    '  <docs-demo demo-title="Example App Layout" class="small-demo">\n' +
-    '    <demo-file name="index.html">\n' +
-    '      <div layout="column" layout-fill class="layout-demo">\n' +
-    '        <header>\n' +
-    '          Header\n' +
-    '        </header>\n' +
-    '\n' +
-    '        <section flex layout="column" layout-gt-sm="row">\n' +
-    '          <aside flex flex-gt-sm="20">\n' +
-    '            Menu<br />\n' +
-    '            flex flex-gt-sm="20"\n' +
-    '          </aside>\n' +
-    '          <main flex>\n' +
-    '            Main<br />flex\n' +
-    '          </main>\n' +
-    '        </section>\n' +
-    '\n' +
-    '        <footer>\n' +
-    '          Footer\n' +
-    '        </footer>\n' +
-    '      </div>\n' +
-    '    </demo-file>\n' +
-    '  </docs-demo>\n' +
-    '  <p>\n' +
-    '    In this layout, the header and footer are both using their normal height, while the main\n' +
-    '    content area is flexing, or stretching, to fill the remaining area.\n' +
-    '    <br/><gr/>\n' +
-    '    The app container is a vertical layout, while the main area is a responsive row/column\n' +
-    '    layout, depending upon the screen size. \n' +
-    '    The aside menu is above on mobile, and to the left on larger devices.\n' +
-    '  </p>\n' +
-    '  -->\n' +
-    '</div>\n' +
-    '\n' +
     '</div>\n' +
     '');
 }]);
@@ -472,6 +444,54 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '    <tr>\n' +
     '      <td>flex-order-gt-lg</td>\n' +
     '      <td>Sets element order on devices greater than 1200px wide.</td>\n' +
+    '    </tr>\n' +
+    '  </table>\n' +
+    '  <md-divider></md-divider>\n' +
+    '  <docs-demo demo-title="Flex Offset Attribute" class="small-demo">\n' +
+    '    <demo-file name="index.html">\n' +
+    '      <div layout="row">\n' +
+    '        <div flex offset="33">\n' +
+    '          [flex offset="33"]\n' +
+    '        </div>\n' +
+    '        <div flex>\n' +
+    '          [flex]\n' +
+    '        </div>\n' +
+    '      </div>\n' +
+    '    </demo-file>\n' +
+    '  </docs-demo>\n' +
+    '  <p>\n' +
+    '    Add the <code>offset</code> attribute to a layout child to set its\n' +
+    '    offset percentage within the layout. Values must be multiples \n' +
+    '    of <code>5</code>, or <code>33</code>, <code>34</code>, <code>66</code>, <code>67</code>.\n' +
+    '  </p>\n' +
+    '  <table>\n' +
+    '    <tr>\n' +
+    '      <td>offset</td>\n' +
+    '      <td>Sets element offset.</td>\n' +
+    '    </tr>\n' +
+    '    <tr>\n' +
+    '      <td>offset-sm</td>\n' +
+    '      <td>Sets element offset on devices less than 600px wide.</td>\n' +
+    '    </tr>\n' +
+    '    <tr>\n' +
+    '      <td>offset-gt-sm</td>\n' +
+    '      <td>Sets element offset on devices greater than 600px wide.</td>\n' +
+    '    </tr>\n' +
+    '    <tr>\n' +
+    '      <td>offset-md</td>\n' +
+    '      <td>Sets element offset on devices between 600px and 960px wide.</td>\n' +
+    '    </tr>\n' +
+    '    <tr>\n' +
+    '      <td>offset-gt-md</td>\n' +
+    '      <td>Sets element offset on devices greater than 960px wide.\n' +
+    '    </tr>\n' +
+    '    <tr>\n' +
+    '      <td>offset-lg</td>\n' +
+    '      <td>Sets element offset on devices between 960px and 1200px wide.</td>\n' +
+    '    </tr>\n' +
+    '    <tr>\n' +
+    '      <td>offset-gt-lg</td>\n' +
+    '      <td>Sets element offset on devices greater than 1200px wide.</td>\n' +
     '    </tr>\n' +
     '  </table>\n' +
     '</div>\n' +
@@ -710,7 +730,7 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '<md-button ng-class="{\'active\' : isSelected()}"\n' +
     '  ng-href="#{{section.url}}" ng-click="focusSection()">\n' +
     '  {{section | humanizeDoc}}\n' +
-    '  <span class="visually-hidden"\n' +
+    '  <span class="md-visually-hidden"\n' +
     '    ng-if="isSelected()">\n' +
     '    current page\n' +
     '  </span>\n' +
@@ -732,7 +752,7 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '      <md-icon md-svg-src="toggle-arrow"></md-icon>\n' +
     '    </span>\n' +
     '  </div>\n' +
-    '  <span class="visually-hidden">\n' +
+    '  <span class="md-visually-hidden">\n' +
     '    Toggle {{isOpen()? \'expanded\' : \'collapsed\'}}\n' +
     '  </span>\n' +
     '</md-button>\n' +
@@ -757,17 +777,17 @@ angular.module('docsApp').run(['$templateCache', function($templateCache) {
     '    </md-tab>\n' +
     '  </md-tabs>\n' +
     '\n' +
-    '  <div class="md-content" md-scroll-y flex>\n' +
+    '  <md-dialog-content md-scroll-y flex>\n' +
     '    <div ng-repeat="file in files">\n' +
     '      <hljs code="file.content"\n' +
     '        lang="{{file.fileType}}"\n' +
     '        ng-show="file === data.selectedFile" >\n' +
     '      </hljs>\n' +
     '    </div>\n' +
-    '  </div>\n' +
+    '  </md-dialog-content>\n' +
     '\n' +
     '  <div class="md-actions" layout="horizontal">\n' +
-    '    <md-button class="md-button-light" ng-click="$hideDialog()">\n' +
+    '    <md-button class="md-primary" ng-click="$hideDialog()">\n' +
     '      Done\n' +
     '    </md-button>\n' +
     '  </div>\n' +

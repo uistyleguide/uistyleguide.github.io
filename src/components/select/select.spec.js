@@ -2,11 +2,9 @@ describe('<md-select-menu>', function() {
 
   beforeEach(module('material.components.select', 'ngAnimateMock'));
 
-  beforeEach(inject(function($mdUtil, $q) {
+  beforeEach(inject(function($mdUtil, $$q) {
     $mdUtil.transitionEndPromise = function() {
-      var deferred = $q.defer();
-      deferred.resolve();
-      return deferred.promise;
+      return $$q.when(true);
     };
   }));
 
@@ -68,12 +66,10 @@ describe('<md-select-menu>', function() {
 
 
   function pressKey(el, code) {
-    inject(function($rootScope, $animate, $timeout) {
       el.triggerHandler({
         type: 'keydown',
         keyCode: code
       });
-    });
   }
 
   function waitForSelectOpen() {
@@ -86,27 +82,56 @@ describe('<md-select-menu>', function() {
   }
 
   function waitForSelectClose() {
-    inject(function($rootScope, $animate) {
-      $rootScope.$digest();
-      $animate.triggerCallbacks();
-    });
+    try {
+      inject(function($rootScope, $animate ) {
+        $rootScope.$apply();
+        $animate.triggerCallbacks();
+
+      });
+    } catch(e) { }
   }
+
+  it('should preserve tabindex', inject(function($document) {
+    var select = setupSelect('tabindex="2", ng-model="val"');
+    expect(select.attr('tabindex')).toBe('2');
+  }));
+
+  it('supports non-disabled state', inject(function($document) {
+    var select = setupSelect('ng-model="val"');
+    expect(select.attr('aria-disabled')).toBe('false');
+  }));
 
   it('supports disabled state', inject(function($document) {
     var select = setupSelect('disabled="disabled", ng-model="val"');
     openSelect(select);
-    waitForSelectOpen();
+    expect($document.find('md-select-menu').length).toBe(0);
+    expect(select.attr('aria-disabled')).toBe('true');
+  }));
+
+  xit('closes the menu if the element is destroyed', inject(function($document, $rootScope) {
+    var select = setupSelect('ng-model="val"');
+
+    openSelect(select);
+    expect($document.find('md-select-menu').length).toBe(1);
+
+    select.scope().$destroy();
+    waitForSelectClose();
+
     expect($document.find('md-select-menu').length).toBe(0);
   }));
 
-  it('closes the menu if the element is destroyed', inject(function($document) {
+  it('restores focus to select when the menu is closed', inject(function($document) {
     var select = setupSelect('ng-model="val"');
     openSelect(select);
-    waitForSelectOpen();
-    expect($document.find('md-select-menu').length).toBe(1);
-    select.scope().$destroy();
+
+    $document[0].body.appendChild(select[0]);
+
+    var selectMenu = $document.find('md-select-menu');
+    pressKey(selectMenu, 27);
     waitForSelectClose();
-    expect($document.find('md-select-menu').length).toBe(0);
+
+    expect($document[0].activeElement).toBe(select[0]);
+    select.remove();
   }));
 
   describe('label behavior', function() {
@@ -146,12 +171,20 @@ describe('<md-select-menu>', function() {
     }));
   });
 
+  it('auto-infers a value when none specified', inject(function($rootScope) {
+      $rootScope.name = "Hannah";
+      var el = setup('ng-model="name"', '<md-option>Tom</md-option>' +
+            '<md-option>Hannah</md-option>');
+      expect(selectedOptions(el).length).toBe(1);
+  }));
+
   it('errors for duplicate md-options, non-dynamic value', inject(function($rootScope) {
     expect(function() {
       setup('ng-model="$root.model"', '<md-option value="a">Hello</md-option>' +
             '<md-option value="a">Goodbye</md-option>');
     }).toThrow();
   }));
+
   it('errors for duplicate md-options, ng-value', inject(function($rootScope) {
     setup('ng-model="$root.model"', '<md-option ng-value="foo">Hello</md-option>' +
           '<md-option ng-value="bar">Goodbye</md-option>');
@@ -267,7 +300,7 @@ describe('<md-select-menu>', function() {
 
           var selectEl = setupSelect('ng-model="myModel", ng-change="changed()"', [1, 2, 3]);
           openSelect(selectEl);
-          waitForSelectOpen();
+
           var menuEl = $document.find('md-select-menu');
           menuEl.triggerHandler({
             type: 'click',
@@ -371,7 +404,7 @@ describe('<md-select-menu>', function() {
         $rootScope.$apply('model.shift()');
 
         expect(selectedOptions(el).length).toBe(1);
-        expect(el.find('md-option').eq(1).attr('selected')).toBe('selected');
+        expect(el.find('md-option').eq(2).attr('selected')).toBe('selected');
         expect($rootScope.model).toEqual([3]);
       }));
 
@@ -553,13 +586,6 @@ describe('<md-select-menu>', function() {
       selectMenus.remove();
     }));
 
-    it('sets up the aria-owns attribute', inject(function($document) {
-      openSelect(el);
-      var selectMenu = $document.find('md-select-menu');
-      var selectMenuId = selectMenu.attr('id');
-      expect(selectMenuId.length).toBeTruthy();
-      expect(el.attr('aria-owns')).toBe(selectMenuId);
-    }));
     it('sets up the aria-labeledby attribute', inject(function($document) {
       openSelect(el);
       var selectId = el.attr('id');
@@ -634,6 +660,12 @@ describe('<md-select-menu>', function() {
         waitForSelectOpen();
         var selectMenu = angular.element($document.find('md-select-menu'));
         expect(selectMenu.length).toBe(1);
+      }));
+
+      it('supports typing an option name', inject(function($document, $rootScope) {
+        var el = setupSelect('ng-model="someModel"', [1, 2, 3]);
+        pressKey(el, 50);
+        expect($rootScope.someModel).toBe(2);
       }));
     });
 

@@ -7,14 +7,17 @@
   height: 100%;
 }
 
-.gap {
-  width: 50px;
+.dialog-demo-content div {
+  text-align: center;
+}
+.dialog-demo-content div .md-button {
+  display: inline-block;
 }
 
-md-dialog md-content.sticky-container {
+md-dialog md-dialog-content.sticky-container {
   padding: 0;
 }
-  md-dialog md-content.sticky-container .dialog-content {
+  md-dialog md-dialog-content.sticky-container > div {
     padding: 0 24px 24px;
   }
 
@@ -24,8 +27,8 @@ md-dialog md-content.sticky-container {
 }
 
 h2.md-subheader.md-sticky-clone {
-  margin-right: 0px;
-  margin-top: 0px;
+  margin-right: 0;
+  margin-top: 0;
 
   box-shadow: 0px 2px 4px 0 rgba(0,0,0,0.16);
 }
