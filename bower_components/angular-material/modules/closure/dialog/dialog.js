@@ -2,14 +2,11 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-5fe2e36
+ * v0.9.0-rc2-master-041ffe9
  */
 goog.provide('ng.material.components.dialog');
 goog.require('ng.material.components.backdrop');
 goog.require('ng.material.core');
-(function() {
-'use strict';
-
 /**
  * @ngdoc module
  * @name material.components.dialog
@@ -53,10 +50,14 @@ MdDialogDirective.$inject = ["$$rAF", "$mdTheming"];
  * - The dialog's template must have an outer `<md-dialog>` element.
  *   Inside, use an `<md-content>` element for the dialog's content, and use
  *   an element with class `md-actions` for the dialog's actions.
+ * - Dialogs must cover the entire application to keep interactions inside of them.
+ * Use the `parent` option to change where dialogs are appended.
+ *
+ * ## Sizing
+ * - Complex dialogs can be sized with `flex="percentage"`, i.e. `flex="66"`.
+ * - Default max-width is 80% of the `rootElement` or `parent`.
  *
  * @usage
- * ### HTML
- *
  * <hljs lang="html">
  * <div  ng-app="demoApp" ng-controller="EmployeeController">
  *   <md-button ng-click="showAlert()" class="md-raised md-warn">
@@ -294,7 +295,7 @@ MdDialogDirective.$inject = ["$$rAF", "$mdTheming"];
  *   - `hasBackdrop` - `{boolean=}`: Whether there should be an opaque backdrop behind the dialog.
  *     Default true.
  *   - `clickOutsideToClose` - `{boolean=}`: Whether the user can click outside the dialog to
- *     close it. Default true.
+ *     close it. Default false.
  *   - `escapeToClose` - `{boolean=}`: Whether the user can press escape to close the dialog.
  *     Default true.
  *   - `focusOnOpen` - `{boolean=}`: An option to override focus behavior on open. Only disable if
@@ -366,7 +367,7 @@ function MdDialogProvider($$interimElementProvider) {
       template: [
         '<md-dialog md-theme="{{ dialog.theme }}" aria-label="{{ dialog.ariaLabel }}">',
           '<md-content role="document" tabIndex="0">',
-            '<h2>{{ dialog.title }}</h2>',
+            '<h2 class="md-title">{{ dialog.title }}</h2>',
             '<p>{{ dialog.content }}</p>',
           '</md-content>',
           '<div class="md-actions">',
@@ -435,6 +436,7 @@ function MdDialogProvider($$interimElementProvider) {
                            && $document[0].documentElement.scrollTop) ? angular.element($document[0].documentElement) : options.parent;
         var parentOffset = computeFrom.prop('scrollTop');
         options.backdrop = angular.element('<md-backdrop class="md-dialog-backdrop md-opaque">');
+        options.backdrop.css('top', parentOffset +'px');
         $mdTheming.inherit(options.backdrop, options.parent);
         $animate.enter(options.backdrop, options.parent);
         element.css('top', parentOffset +'px');
@@ -664,4 +666,4 @@ function MdDialogProvider($$interimElementProvider) {
 }
 MdDialogProvider.$inject = ["$$interimElementProvider"];
 
-})();
+ng.material.components.dialog = angular.module("material.components.dialog");

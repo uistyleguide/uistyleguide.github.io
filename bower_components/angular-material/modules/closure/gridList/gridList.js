@@ -2,13 +2,10 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-5fe2e36
+ * v0.9.0-rc2-master-041ffe9
  */
 goog.provide('ng.material.components.gridList');
 goog.require('ng.material.core');
-(function() {
-'use strict';
-
 /**
  * @ngdoc module
  * @name material.components.gridList
@@ -160,36 +157,51 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
       }
     }
 
+    var lastLayoutProps;
+
     /**
      * Invokes the layout engine, and uses its results to lay out our
      * tile elements.
+     *
+     * @param {boolean} tilesAdded Whether tiles have been added since the last
+     *    layout. This is to avoid situations where tiles are replaced with
+     *    properties identical to their removed counterparts.
      */
-    function layoutDelegate() {
+    function layoutDelegate(tilesAdded) {
+      var props = {
+        tileSpans: getTileSpans(),
+        colCount: getColumnCount(),
+        rowMode: getRowMode(),
+        rowHeight: getRowHeight(),
+        gutter: getGutter()
+      };
+
+      if (!tilesAdded && angular.equals(props, lastLayoutProps)) {
+        return;
+      }
+
       var tiles = getTileElements(),
-          colCount = getColumnCount(),
-          rowMode = getRowMode(),
-          rowHeight = getRowHeight(),
-          gutter = getGutter(),
           performance =
-              $mdGridLayout(colCount, getTileSpans(), getTileElements())
-                  .map(function(tilePositions, rowCount) {
+            $mdGridLayout(props.colCount, props.tileSpans, tiles)
+              .map(function(tilePositions, rowCount) {
+                return {
+                  grid: {
+                    element: element,
+                    style: getGridStyle(props.colCount, rowCount,
+                        props.gutter, props.rowMode, props.rowHeight)
+                  },
+                  tiles: tilePositions.map(function(ps, i) {
                     return {
-                      grid: {
-                        element: element,
-                        style: getGridStyle(colCount, rowCount, gutter, rowMode, rowHeight)
-                      },
-                      tiles: tilePositions.map(function(ps, i) {
-                        return {
-                          element: angular.element(tiles[i]),
-                          style: getTileStyle(ps.position, ps.spans,
-                              colCount, rowCount,
-                              gutter, rowMode, rowHeight)
-                        }
-                      })
+                      element: angular.element(tiles[i]),
+                      style: getTileStyle(ps.position, ps.spans,
+                          props.colCount, props.rowCount,
+                          props.gutter, props.rowMode, props.rowHeight)
                     }
                   })
-                  .reflow()
-                  .performance();
+                }
+              })
+              .reflow()
+              .performance();
 
       // Report layout
       scope.mdOnLayout({
@@ -197,9 +209,19 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
           performance: performance
         }
       });
+
+      lastLayoutProps = props;
     }
 
     // Use $interpolate to do some simple string interpolation as a convenience.
+
+    var startSymbol = $interpolate.startSymbol();
+    var endSymbol = $interpolate.endSymbol();
+
+    // Returns an expression wrapped in the interpolator's start and end symbols.
+    function expr(exprStr) {
+      return startSymbol + exprStr + endSymbol;
+    }
 
     // The amount of space a single 1x1 tile would take up (either width or height), used as
     // a basis for other calculations. This consists of taking the base size percent (as would be
@@ -207,20 +229,18 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
     // However, since there are no gutters on the edges, each tile only uses a fration
     // (gutterShare = numGutters / numCells) of the gutter size. (Imagine having one gutter per
     // tile, and then breaking up the extra gutter on the edge evenly among the cells).
-    var UNIT = $interpolate('{{share}}% - ( {{gutter}} * {{gutterShare}} )');
+    var UNIT = $interpolate(expr('share') + '% - (' + expr('gutter') + ' * ' + expr('gutterShare') + ')');
 
     // The horizontal or vertical position of a tile, e.g., the 'top' or 'left' property value.
     // The position comes the size of a 1x1 tile plus gutter for each previous tile in the
     // row/column (offset).
-    var POSITION  = $interpolate('calc( ( ({{unit}}) + {{gutter}} ) * {{offset}} ');
+    var POSITION  = $interpolate('calc((' + expr('unit') + ' + ' + expr('gutter') + ') * ' + expr('offset') + ')');
 
     // The actual size of a tile, e.g., width or height, taking rowSpan or colSpan into account.
     // This is computed by multiplying the base unit by the rowSpan/colSpan, and then adding back
     // in the space that the gutter would normally have used (which was already accounted for in
     // the base unit calculation).
-    var DIMENSION = $interpolate('calc(({{unit}}) * {{span}} + ({{span}} - 1) * {{gutter}})');
-
-    // TODO(shyndman): Replace args with a ctx object.
+    var DIMENSION = $interpolate('calc((' + expr('unit') + ') * ' + expr('span') + ' + (' + expr('span') + ' - 1) * ' + expr('gutter') + ')');
 
     /**
      * Gets the styles applied to a tile element described by the given parameters.
@@ -292,7 +312,7 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
           // Percent of the available vertical space that one row takes up.
           var vShare = (1 / rowCount) * 100;
 
-          // Base veritcal size of a row.
+          // Base vertical size of a row.
           var vUnit = UNIT({share: vShare, gutterShare: vGutterShare, gutter: gutter});
 
           style.top = POSITION({unit: vUnit, offset: position.row, gutter: gutter});
@@ -394,9 +414,10 @@ function GridListDirective($interpolate, $mdConstant, $mdGridLayout, $mdMedia) {
 }
 GridListDirective.$inject = ["$interpolate", "$mdConstant", "$mdGridLayout", "$mdMedia"];
 
-  /* @ngInject */
+/* @ngInject */
 function GridListController($timeout) {
   this.invalidated = false;
+  this.tilesAdded = false;
   this.$timeout_ = $timeout;
   this.tiles = [];
   this.layoutDelegate = angular.noop;
@@ -411,6 +432,7 @@ GridListController.prototype = {
     } else {
       this.tiles.splice(idx, 0, tile);
     }
+    this.tilesAdded = true;
     this.invalidateLayout();
   },
 
@@ -433,9 +455,10 @@ GridListController.prototype = {
 
   layout: function() {
     try {
-      this.layoutDelegate();
+      this.layoutDelegate(this.tilesAdded);
     } finally {
       this.invalidated = false;
+      this.tilesAdded = false;
     }
   },
 
@@ -731,6 +754,14 @@ function GridTileDirective($mdMedia) {
       unwatchAttrs();
       gridCtrl.removeTile(element, attrs);
     });
+
+    if (angular.isDefined(scope.$parent.$index)) {
+      scope.$watch(function() { return scope.$parent.$index; },
+        function indexChanged(newIdx, oldIdx) {
+          gridCtrl.removeTile(element, attrs);
+          gridCtrl.addTile(element, attrs, newIdx);
+        });
+    }
   }
 }
 GridTileDirective.$inject = ["$mdMedia"];
@@ -742,4 +773,4 @@ function GridTileCaptionDirective() {
   };
 }
 
-})();
+ng.material.components.gridList = angular.module("material.components.gridList");

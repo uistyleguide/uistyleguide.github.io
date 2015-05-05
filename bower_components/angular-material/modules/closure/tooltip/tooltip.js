@@ -2,13 +2,10 @@
  * Angular Material Design
  * https://github.com/angular/material
  * @license MIT
- * v0.8.3-master-5fe2e36
+ * v0.9.0-rc2-master-041ffe9
  */
 goog.provide('ng.material.components.tooltip');
 goog.require('ng.material.core');
-(function() {
-'use strict';
-
 /**
  * @ngdoc module
  * @name material.components.tooltip
@@ -30,11 +27,12 @@ angular
  *
  * @usage
  * <hljs lang="html">
- * <md-icon icon="/img/icons/ic_play_arrow_24px.svg">
+ * <md-button class="md-fab md-accent" aria-label="Play">
  *   <md-tooltip>
  *     Play Music
  *   </md-tooltip>
- * </md-icon>
+ *   <md-icon icon="/img/icons/ic_play_arrow_24px.svg"></md-icon>
+ * </md-button>
  * </hljs>
  *
  * @param {expression=} md-visible Boolean bound to whether the tooltip is
@@ -146,9 +144,19 @@ function MdTooltipDirective($timeout, $window, $$rAF, $document, $mdUtil, $mdThe
     }
 
     function showTooltip() {
-      // Insert the element before positioning it, so we can get position
-      parent.attr('aria-describedby', element.attr('id'));
+      // Insert the element before positioning it, so we can get the position
+      // and check if we should display it
       tooltipParent.append(element);
+
+      // Check if we should display it or not.
+      // This handles hide-* and show-* along with any user defined css
+      var computedStyles = $window.getComputedStyle(element[0]);
+      if (angular.isDefined(computedStyles.display) && computedStyles.display == 'none') {
+        element.detach();
+        return;
+      }
+
+      parent.attr('aria-describedby', element.attr('id'));
 
       positionTooltip();
       angular.forEach([element, background, content], function (element) {
@@ -228,4 +236,5 @@ function MdTooltipDirective($timeout, $window, $$rAF, $document, $mdUtil, $mdThe
 
 }
 MdTooltipDirective.$inject = ["$timeout", "$window", "$$rAF", "$document", "$mdUtil", "$mdTheming", "$rootElement", "$animate", "$q"];
-})();
+
+ng.material.components.tooltip = angular.module("material.components.tooltip");
